@@ -174,7 +174,7 @@
 
 # Support part mods
 - name: AIES
-  options: "--aies"
+  option: "--aies"
   url: http://forum.kerbalspaceprogram.com/threads/35383
   via: forum
   file: AIES_Aerospace143.zip

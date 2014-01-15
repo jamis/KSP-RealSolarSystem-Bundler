@@ -322,7 +322,7 @@ elsif ARGV.include?("-l") || ARGV.include?("--list")
   end
   exit
 elsif ARGV.include?("--defaults")
-  ARGV.replace(%w(--tac --kas --kw --rla --mj --crew-manifest --alarm))
+  ARGV.replace(%w(--tac --kas --aies --kw --rla --mj --crew-manifest --alarm))
 end
 
 mods = mods.reject { |m| m.skip? } unless ARGV.include?("--all")
