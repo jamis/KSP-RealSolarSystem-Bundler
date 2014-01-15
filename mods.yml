@@ -1,0 +1,273 @@
+# Essential Mods
+- name: Real Solar System
+  url: http://forum.kerbalspaceprogram.com/threads/55145
+  via: forum
+  file: RealSolarSystem_v5_5.zip
+  version: 5.5
+  gamedata: true
+- name: Realism Overhaul
+  url: http://forum.kerbalspaceprogram.com/threads/59207
+  via: forum
+  file: RealismOverhaul_v3.zip
+  version: 3
+  gamedata: true
+- name: Ferram Aerospace Research (FAR)
+  url: http://forum.kerbalspaceprogram.com/threads/20451
+  via: spaceport
+  addonid: 1113
+  type: zip
+  version: 0.12.5.2
+  ignore:
+  - 000_Toolbar
+- name: Deadly Reentry Continued
+  url: http://forum.kerbalspaceprogram.com/threads/54954
+  via: forum
+  file: DeadlyReentryCont_v4.3.zip
+  version: 4.3
+  gamedata: true
+- name: StretchSRB
+  url: http://forum.kerbalspaceprogram.com/threads/57422
+  via: forum
+  file: StretchySRB_v8_1.zip
+  version: 8.1
+  gamedata: true
+- name: RealFuels
+  url: http://forum.kerbalspaceprogram.com/threads/64118
+  via: forum
+  file: RealFuels_v4_2.zip
+  version: 4.2
+  gamedata: true
+- name: RealChutes
+  url: http://forum.kerbalspaceprogram.com/threads/57988
+  via: spaceport
+  addonid: 40204
+  type: zip
+  version: 0.3.3.2
+- name: Engine Ignitor
+  url: http://forum.kerbalspaceprogram.com/threads/51880
+  via: forum
+  file: EngineIgnitor%20V3.1.zip
+  version: 3.1
+  gamedata: true
+  post-build: |
+    rm $GAMEDATA/EngineIgnitor/*.cfg
+- name: ECLSS
+  url: http://forum.kerbalspaceprogram.com/threads/58127
+  via: forum
+  file: LifeSupportMod.1.0.15.zip
+  version: 1.0.15
+  option: "--eclss"
+- name: TAC Life Support
+  url: http://forum.kerbalspaceprogram.com/threads/40667
+  via: spaceport
+  addonid: 26610
+  type: zip
+  version: 0.8
+  option: "--tac"
+- name: Remote Tech 2
+  url: http://forum.kerbalspaceprogram.com/threads/56399
+  via: spaceport
+  addonid: 38721
+  type: zip
+  version: 1.3.3
+- name: TreeLoader
+  url: http://forum.kerbalspaceprogram.com/threads/53192
+  via: spaceport
+  addonid: 36739
+  type: zip
+  version: 1.1.3
+  gamedata: true
+- name: Realistic Progression LITE
+  url: http://forum.kerbalspaceprogram.com/threads/58135
+  via: forum
+  file: RPL_MiniRealismPack_V18b.rar
+  version: 18b
+  ignore:
+  - DeadlyReentry
+  - ModularFuelTanks
+  - RealSolarSystem
+  - RealismOverhaul
+  - StretchyTanks
+  - NotReady
+  - DeleteOnceMoved
+  post-build: |
+    cp $SRC_GAMEDATA/RPL_Tweak_Pack/RT2_Settings_Files\(DeleteOnceMoved\)/*.cfg $GAMEDATA/RemoteTech2
+
+# Almost Essential Mods
+- name: Mission Controller Extended
+  url: http://forum.kerbalspaceprogram.com/threads/43645
+  via: forum
+  file: MissionControllerext.43.rar
+  version: 0.43
+  ignore:
+  - 000_Toolbar
+  gamedata: true
+- name: Visual Enhancements
+  url: http://forum.kerbalspaceprogram.com/threads/55905
+  via: direct
+  #download: https://github.com/waka324/VisualEnhancements/releases/download/6-7/VisualEnhancments-6-7.zip
+  download: https://github.com/waka324/VisualEnhancements/releases/download/6-7-LowRes/VisualEnhancments-6-7.LowRes.zip
+  version: 6.7
+- name: Procedural Fairings
+  url: http://forum.kerbalspaceprogram.com/threads/39512
+  via: spaceport
+  addonid: 22991
+  type: zip
+  version: 2.4.3
+- name: Kerbal Joint Reinforcement
+  url: http://forum.kerbalspaceprogram.com/threads/55657
+  via: spaceport
+  addonid: 38156
+  type: zip
+  version: 1.7
+
+# Not really essential, but interesting mods
+- name: Kethane
+  option: "--kethane"
+  url: http://forum.kerbalspaceprogram.com/threads/23979
+  via: forum
+  file: Kethane-0.8.4.zip
+  version: 0.8.4
+  disabled: |
+    Grid needs to be adjusted for each planet. Part ranges need to
+    be adjuested for each planet. Resource amounts need to be adjusted
+    for each planet.
+- name: Extraplanetary Launchpads
+  option: "--launchpads"
+  url: http://forum.kerbalspaceprogram.com/threads/59545
+  via: forum
+  file: Extraplanetary_Launchpads_v3.6.zip
+  version: 3.6
+  gamedata: true
+  disabled: |
+    Grid needs to be adjusted for each planet. Part ranges need to
+    be adjuested for each planet. Resource amounts need to be adjusted
+    for each planet.
+- name: Kerbal Attachment System (KAS)
+  option: "--kas"
+  url: http://forum.kerbalspaceprogram.com/threads/53134
+  via: spaceport
+  addonid: 3998
+  type: zip
+  version: 0.4.5
+- name: KSP Interstellar
+  option: "--warp"
+  url: http://forum.kerbalspaceprogram.com/threads/43839
+  via: forum
+  file: KSPInterstellar-v0.9.2.zip
+  version: 0.9.2
+- name: Infernal Robotics
+  option: "--robotics"
+  url: http://forum.kerbalspaceprogram.com/threads/37707
+  via: forum
+  file: InfernalRobotics0.11.zip
+  version: 0.11
+- name: SCANSat
+  option: "--scansat"
+  url: http://forum.kerbalspaceprogram.com/threads/55832
+  via: forum
+  file: SCANsat_b5.zip
+  version: b5
+  gamedata: true
+  disabled: |
+    Part ranges need to be adjusted (min_alt, max_alt, best_alt, maybe others?)
+
+# Support part mods
+- name: AIES
+  options: "--aies"
+  url: http://forum.kerbalspaceprogram.com/threads/35383
+  via: forum
+  file: AIES_Aerospace143.zip
+  version: 1.4.3
+  gamedata: true
+- name: KW Rocketry
+  option: "--kw"
+  url: http://forum.kerbalspaceprogram.com/threads/51037
+  via: spaceport
+  addonid: 2109
+  type: zip
+  version: 2.5.6B
+- name: NovaPunch
+  option: "--novapunch"
+  url: http://forum.kerbalspaceprogram.com/threads/3870
+  via: spaceport
+  addonid: 4372
+  type: zip
+  version: 2.03
+- name: FASA
+  option: "--fasa"
+  url: http://forum.kerbalspaceprogram.com/threads/24867
+  via: forum
+  file: FASA3.60.zip
+  version: 3.60
+- name: Bobcat Soviet Engines Pack
+  option: "--soviet"
+  url: http://forum.kerbalspaceprogram.com/threads/24724
+  via: spaceport
+  addonid: 5943
+  type: zip
+  version: 2.0.0
+- name: RLA Stockalike
+  option: "--rla"
+  url: http://forum.kerbalspaceprogram.com/threads/24593
+  via: spaceport
+  addonid: 10062
+  type: zip
+  version: 0.9.4
+
+# Useful utilities
+- name: Toolbar
+  url: http://forum.kerbalspaceprogram.com/threads/60863
+  via: forum
+  file: Toolbar-1.4.2.zip
+  version: 1.4.2
+- name: MechJeb
+  option: "--mj"
+  url: http://mechjeb.com
+  via: spaceport
+  addonid: 3679
+  type: zip
+  version: 2.1.1
+  gamedata: true
+  post-build: |
+    sed 's/mass =.*/mass = 0.005/g' $GAMEDATA/MechJeb2/Parts/MechJeb2_AR202/part.cfg > _.cfg
+    mv _.cfg $GAMEDATA/MechJeb2/Parts/MechJeb2_AR202/part.cfg
+    ruby tools/remove-module.rb $GAMEDATA/MechJeb2/Parts/MechJeb2_AR202/part.cfg ModuleCommand
+- name: Kerbal Engineer Redux
+  option: "--kerbal-engineer"
+  url: http://forum.kerbalspaceprogram.com/threads/18230
+  via: spaceport
+  addonid: 3081
+  type: zip
+  version: 0.6.2.3
+  gamedata: true
+- name: Crew Manifest
+  option: "--crew-manifest"
+  url: http://forum.kerbalspaceprogram.com/threads/24636
+  via: spaceport
+  addonid: 3592
+  type: zip
+  version: 0.5.5.0
+- name: Kerbal Alarm Clock
+  option: "--alarm"
+  url: http://forum.kerbalspaceprogram.com/threads/24786
+  via: spaceport
+  addonid: 7625
+  type: zip
+  version: 2.7.0
+
+# supporting files
+- name: Reaching for the Stars config
+  url: http://forum.kerbalspaceprogram.com/threads/59207
+  via: forum
+  file: RftSEngines.cfg
+  build: false
+  post-build: |
+    rm -rf $GAMEDATA/SFJBRealEngines
+    cp $SRC/*.cfg $GAMEDATA/RealismOverhaul
+
+- name: Space Shuttle Engines
+  url: http://forum.kerbalspaceprogram.com/threads/55985
+  via: forum
+  file: Space-shuttle-engines-2014-01-06-v0.9.3.zip
+  version: 0.9.3
