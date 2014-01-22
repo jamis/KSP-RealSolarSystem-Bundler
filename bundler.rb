@@ -92,6 +92,10 @@ class KSPMod
     @data['option']
   end
 
+  def url
+    @data['url']
+  end
+
   def skip?
     disabled? ||
       (optional? && !ARGV.include?(option))
@@ -321,8 +325,14 @@ elsif ARGV.include?("-l") || ARGV.include?("--list")
     puts
   end
   exit
+elsif ARGV.include?("--urls")
+  urls = mods.map { |m| m.url }
+  system("open -a Google\\ Chrome #{urls.join(' ')}")
+  exit
 elsif ARGV.include?("--defaults")
-  ARGV.replace(%w(--tac --kas --aies --kw --rla --mj --crew-manifest --alarm))
+  ARGV.replace(%w(--rov --far --dre --rf --chutes --stretchy --ignitor --remote --rpl --mce --visual --pf --kjr --tac --kas --aies --kw --rla --mj --alarm))
+elsif ARGV.include?("--stockish")
+  ARGV.replace(%w(--far --dre --stretchy --visual --pf --kjr --tac --kas --aies --kw --rla --mj --alarm))
 end
 
 mods = mods.reject { |m| m.skip? } unless ARGV.include?("--all")
