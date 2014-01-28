@@ -272,6 +272,7 @@
 # supporting files
 - name: Reaching for the Stars Pack
   url: http://forum.kerbalspaceprogram.com/threads/57833?p=773847&viewfull=1#post773847
+  option: "--rfts"
   via: forum
   file: RftS_Pack_v2.zip
   version: 2
@@ -279,6 +280,7 @@
     rm -rf $GAMEDATA/SFJBRealEngines
   gamedata: true
 - name: Exsurgent Engineering
+  option: "--rfts"
   url: http://forum.kerbalspaceprogram.com/threads/57833?p=773847&viewfull=1#post773847
   via: forum
   file: ExsurgentEngineering.dll

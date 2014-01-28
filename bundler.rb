@@ -330,9 +330,9 @@ elsif ARGV.include?("--urls")
   system("open -a Google\\ Chrome #{urls.join(' ')}")
   exit
 elsif ARGV.include?("--defaults")
-  ARGV.replace(%w(--rov --far --dre --rf --chutes --stretchy --ignitor --remote --rpl --mce --visual --pf --kjr --tac --kas --aies --kw --novapunch --rla --mj --alarm))
+  ARGV.replace(%w(--rov --far --dre --rf --chutes --stretchy --ignitor --remote --rpl --mce --visual --pf --kjr --tac --kas --aies --kw --novapunch --rla --mj --alarm --rfts))
 elsif ARGV.include?("--stockish")
-  ARGV.replace(%w(--far --dre --stretchy --visual --pf --kjr --tac --kas --aies --kw --novapunch --rla --mj --alarm))
+  ARGV.replace(%w(--far --dre --stretchy --visual --pf --kjr --tac --kas --aies --kw --novapunch --rla --mj --alarm --rfts))
 end
 
 mods = mods.reject { |m| m.skip? } unless ARGV.include?("--all")
