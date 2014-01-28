@@ -38,8 +38,8 @@
 - name: RealFuels
   url: http://forum.kerbalspaceprogram.com/threads/64118
   via: forum
-  file: RealFuels_v4_2.zip
-  version: 4.2
+  file: RealFuels_v4_3.zip
+  version: 4.3
   gamedata: true
   option: "--rf"
 - name: RealChutes
@@ -104,10 +104,10 @@
 
 # Almost Essential Mods
 - name: Mission Controller Extended
-  url: http://forum.kerbalspaceprogram.com/threads/43645?p=912530&viewfull=1#post912530
+  url: http://forum.kerbalspaceprogram.com/threads/43645?p=925037&viewfull=1#post925037
   via: forum
-  file: MissionControllerDevBuild2.rar
-  version: 0.43dev2
+  file: MissionControllerDevBuild3.rar
+  version: 0.43dev3
   ignore:
   - 000_Toolbar
   gamedata: true
@@ -232,8 +232,8 @@
 - name: Toolbar
   url: http://forum.kerbalspaceprogram.com/threads/60863
   via: forum
-  file: Toolbar-1.4.2.zip
-  version: 1.4.2
+  file: Toolbar-1.4.4.zip
+  version: 1.4.4
 - name: MechJeb
   option: "--mj"
   url: http://mechjeb.com
@@ -270,17 +270,19 @@
   version: 2.7.0
 
 # supporting files
-- name: Reaching for the Stars config
-  url: http://forum.kerbalspaceprogram.com/threads/59207
+- name: Reaching for the Stars Pack
+  url: http://forum.kerbalspaceprogram.com/threads/57833?p=773847&viewfull=1#post773847
   via: forum
-  file: RftSEngines.cfg
-  build: false
+  file: RftS_Pack_v2.zip
+  version: 2
   post-build: |
     rm -rf $GAMEDATA/SFJBRealEngines
-    cp $SRC/*.cfg $GAMEDATA/RealismOverhaul
-
-- name: Space Shuttle Engines
-  url: http://forum.kerbalspaceprogram.com/threads/55985
+  gamedata: true
+- name: Exsurgent Engineering
+  url: http://forum.kerbalspaceprogram.com/threads/57833?p=773847&viewfull=1#post773847
   via: forum
-  file: Space-shuttle-engines-2014-01-06-v0.9.3.zip
-  version: 0.9.3
+  file: ExsurgentEngineering.dll
+  build: false
+  post-build: |
+    mkdir -p $GAMEDATA/ExsurgentEngineering/Plugins
+    cp $SRC/*.dll $GAMEDATA/ExsurgentEngineering/Plugins

@@ -74,7 +74,7 @@ class KSPMod
     case File.extname(file_name).downcase
       when ".rar" then unpack_rar
       when ".zip" then unpack_zip
-      when ".cfg" then unpack_raw
+      when ".cfg", ".dll" then unpack_raw
       else
         raise "unsupported file type: #{file_name} (#{self})"
     end
@@ -330,9 +330,9 @@ elsif ARGV.include?("--urls")
   system("open -a Google\\ Chrome #{urls.join(' ')}")
   exit
 elsif ARGV.include?("--defaults")
-  ARGV.replace(%w(--rov --far --dre --rf --chutes --stretchy --ignitor --remote --rpl --mce --visual --pf --kjr --tac --kas --aies --kw --rla --mj --alarm))
+  ARGV.replace(%w(--rov --far --dre --rf --chutes --stretchy --ignitor --remote --rpl --mce --visual --pf --kjr --tac --kas --aies --kw --novapunch --rla --mj --alarm))
 elsif ARGV.include?("--stockish")
-  ARGV.replace(%w(--far --dre --stretchy --visual --pf --kjr --tac --kas --aies --kw --rla --mj --alarm))
+  ARGV.replace(%w(--far --dre --stretchy --visual --pf --kjr --tac --kas --aies --kw --novapunch --rla --mj --alarm))
 end
 
 mods = mods.reject { |m| m.skip? } unless ARGV.include?("--all")
