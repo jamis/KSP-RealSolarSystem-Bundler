@@ -308,6 +308,9 @@ end
 data = YAML.load_file("mods.yml")
 mods = data.map { |d| KSPMod.new(d) }
 
+defaults = %w(--rov --far --dre --rf --chutes --stretchy --ignitor --remote --rpl --mce --visual --pf --kjr --tac --kas --aies --kw --novapunch --rla --mj --alarm --rfts)
+stockish = %w(--far --dre --stretchy --visual --pf --kjr --tac --kas --aies --kw --novapunch --rla --mj --alarm --rfts)
+
 if ARGV.include?("-h") || ARGV.include?("--help")
   puts "%20s %s" % ["-l|--list", "list all mods"]
   puts
@@ -316,6 +319,12 @@ if ARGV.include?("-h") || ARGV.include?("--help")
     next if m.disabled? || !m.optional?
     puts "%20s %s" % [m.option, m]
   end
+
+  puts
+  puts "%20s %s" % ["--defaults", "a sane default set of options (#{defaults.join(' ')})"]
+  puts "%20s %s" % ["--stockish", "Play RSS with stock fuels (#{stockish.join(' ')})"]
+  puts
+  puts "You may specify \"--no-[option]\" to specify that a mod should NOT be used"
   exit
 elsif ARGV.include?("-l") || ARGV.include?("--list")
   mods.each do |m|
@@ -329,11 +338,18 @@ elsif ARGV.include?("--urls")
   urls = mods.map { |m| m.url }
   system("open -a Google\\ Chrome #{urls.join(' ')}")
   exit
-elsif ARGV.include?("--defaults")
-  ARGV.replace(%w(--rov --far --dre --rf --chutes --stretchy --ignitor --remote --rpl --mce --visual --pf --kjr --tac --kas --aies --kw --novapunch --rla --mj --alarm --rfts))
-elsif ARGV.include?("--stockish")
-  ARGV.replace(%w(--far --dre --stretchy --visual --pf --kjr --tac --kas --aies --kw --novapunch --rla --mj --alarm --rfts))
+elsif (defaults_index = ARGV.index("--defaults"))
+  ARGV[defaults_index,1] = defaults
+elsif (stockish_index = ARGV.index("--stockish"))
+  ARGV[stockish_index,1] = stockish
 end
+
+omits = []
+ARGV.each do |a|
+  omits << "--#{$1}" if a =~ /--no-(.*)/
+end
+
+ARGV = ARGV - omits
 
 mods = mods.reject { |m| m.skip? } unless ARGV.include?("--all")
 
