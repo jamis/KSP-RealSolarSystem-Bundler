@@ -7,4 +7,31 @@ This script is an attempt to "canonicalize" a set of defaults for setting up RSS
 
 Because this was written for my own use, it is in very rough form. If that bothers you, pull-requests are welcome. :)
 
-- Jamis
+Installation
+------------
+
+You'll need to make sure the following utilities are installed:
+
+* Ruby
+* unzip
+* unrar
+
+Usage
+-----
+
+At it's simplest, you can just run the following command:
+
+    ruby bundler.rb --defaults
+
+This will download the various mods, unpack them, and then install them into a `build` directory wherever you run the script. The build directory contains a KSP GameData folder, as well as folders for source code, ships, and so forth.
+
+Once that `build` directory is ready, you can copy it into your KSP folder. Or, you can zip it all up:
+
+    ruby bundler.rb --zip
+
+This will create a file named `HardMode.zip` in the current directory. You can then copy that to your KSP folder, and unzip it.
+
+If you want to choose which mods you want, you can specify them on the command-line instead of giving the "--defaults" argument. To see which options are supported, just type:
+
+    ruby bundler.rb --help
+

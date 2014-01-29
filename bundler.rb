@@ -311,7 +311,7 @@ mods = data.map { |d| KSPMod.new(d) }
 defaults = %w(--rov --far --dre --rf --chutes --stretchy --ignitor --remote --rpl --mce --visual --pf --kjr --tac --kas --aies --kw --novapunch --rla --mj --alarm --rfts)
 stockish = %w(--far --dre --stretchy --visual --pf --kjr --tac --kas --aies --kw --novapunch --rla --mj --alarm --rfts)
 
-if ARGV.include?("-h") || ARGV.include?("--help")
+if ARGV.empty? || ARGV.include?("-h") || ARGV.include?("--help")
   puts "%20s %s" % ["-l|--list", "list all mods"]
   puts
 
