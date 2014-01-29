@@ -31,6 +31,14 @@ class KSPMod
     end
   end
 
+  def category
+    @data['category']
+  end
+
+  def name
+    @data['name']
+  end
+
   def cached_path
     File.join("cache", file_name)
   end
@@ -337,6 +345,17 @@ elsif ARGV.include?("-l") || ARGV.include?("--list")
 elsif ARGV.include?("--urls")
   urls = mods.map { |m| m.url }
   system("open -a Google\\ Chrome #{urls.join(' ')}")
+  exit
+elsif ARGV.include?("--describe")
+  categories = mods.group_by { |m| m.category }
+  %w(core extra part utility interesting support).each do |cat|
+    puts "[b]#{cat} mods[/b]"
+    puts "[list]"
+    categories[cat].each do |mod|
+      puts "[*]#{mod.name} - [url]#{mod.url}[/url]"
+    end
+    puts "[/list]"
+  end
   exit
 elsif (defaults_index = ARGV.index("--defaults"))
   ARGV[defaults_index,1] = defaults

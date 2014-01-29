@@ -306,7 +306,7 @@
     rm -rf $GAMEDATA/SFJBRealEngines
   gamedata: true
   category: support
-- name: Exsurgent Engineering
+- name: Exsurgent Engineering (DLL only)
   option: "--rfts"
   url: http://forum.kerbalspaceprogram.com/threads/57833?p=773847&viewfull=1#post773847
   via: forum
