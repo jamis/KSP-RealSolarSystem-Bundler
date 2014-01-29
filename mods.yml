@@ -78,13 +78,6 @@
   type: zip
   version: 1.3.3
   option: "--remote"
-- name: TreeLoader
-  url: http://forum.kerbalspaceprogram.com/threads/53192
-  via: spaceport
-  addonid: 36739
-  type: zip
-  version: 1.1.3
-  gamedata: true
 - name: Realistic Progression LITE
   url: http://forum.kerbalspaceprogram.com/threads/58135
   via: forum
@@ -288,3 +281,11 @@
   post-build: |
     mkdir -p $GAMEDATA/ExsurgentEngineering/Plugins
     cp $SRC/*.dll $GAMEDATA/ExsurgentEngineering/Plugins
+- name: TreeLoader
+  url: http://forum.kerbalspaceprogram.com/threads/53192
+  option: "--rpl"
+  via: spaceport
+  addonid: 36739
+  type: zip
+  version: 1.1.3
+  gamedata: true

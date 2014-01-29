@@ -342,6 +342,12 @@ elsif (defaults_index = ARGV.index("--defaults"))
   ARGV[defaults_index,1] = defaults
 elsif (stockish_index = ARGV.index("--stockish"))
   ARGV[stockish_index,1] = stockish
+elsif ARGV.include?("--zip")
+  puts "bundling..."
+  Dir.chdir("build") do
+    system "zip -r9 ../HardMode.zip *"
+  end
+  exit
 end
 
 omits = []
@@ -357,10 +363,3 @@ mods.each { |m| m.download }
 mods.each { |m| m.unpack }
 mods.each { |m| m.build }
 mods.each { |m| m.post_build }
-
-if ARGV.include?("--zip")
-  puts "bundling..."
-  Dir.chdir("build") do
-    system "zip -r9 ../HardMode.zip *"
-  end
-end
