@@ -312,7 +312,8 @@ module KSP
           puts
           puts "Sorry for the inconvenience! Blame #{self}..."
           puts "  they've selected an incompatible web host for their files"
-          exit
+
+          exit 1
         end
 
         def download_via_spaceport
