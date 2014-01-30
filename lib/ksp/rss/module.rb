@@ -59,6 +59,10 @@ module KSP
         File.exists?(cached_path)
       end
 
+      def build?
+        @data.fetch('build', true)
+      end
+
       def unpacked?
         File.exists?(unpacked_path)
       end
@@ -113,6 +117,8 @@ module KSP
       end
 
       def build(from=unpacked_path)
+        return unless build?
+
         FileUtils.mkdir_p(GAMEDATA_PATH)
         FileUtils.mkdir_p(SHIPS_PATH)
         FileUtils.mkdir_p(SOURCE_PATH)
