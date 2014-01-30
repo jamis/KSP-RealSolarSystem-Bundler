@@ -138,19 +138,19 @@ module KSP
         def process_args!
           if @args.empty? || @args.include?("-h") || @args.include?("--help")
             show_help
-            exit
+            exit 1
           elsif @args.include?("-l") || @args.include?("--list")
             list_mods
-            exit
+            exit 1
           elsif @args.include?("--urls")
             open_urls
-            exit
+            exit 1
           elsif @args.include?("--describe")
             describe_mods
-            exit
+            exit 1
           elsif @args.include?("--zip")
             create_zip
-            exit
+            exit 1
           elsif (defaults_index = @args.index("--defaults"))
             @args[defaults_index,1] = DEFAULTS
           elsif (stockish_index = @args.index("--stockish"))
