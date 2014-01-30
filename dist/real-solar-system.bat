@@ -1,8 +1,9 @@
 @echo off
-java -Xmx500m -jar real-solar-system.jar %*
+set CLASSPATH=.\jars\zip4j_1.3.2.jar
+java -Xmx500m -jar .\jars\real-solar-system.jar %*
 
 if ERRORLEVEL 1 (
   exit /b 1
 )
 
-java -jar real-solar-system.jar --zip
+java -jar .\jars\real-solar-system.jar --zip

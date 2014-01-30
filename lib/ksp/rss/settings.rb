@@ -1,6 +1,8 @@
 require 'ksp/rss/modlist'
 require 'shellwords'
 
+require './jars/zip4j_1.3.2.jar'
+
 module KSP
   module RSS
     class Settings
@@ -129,9 +131,18 @@ module KSP
 
         def create_zip
           puts "archiving..."
-          Dir.chdir("build") do
-            system "zip -qr9 ../HardMode.zip *"
+
+          zipfile = Java::NetLingalaZip4jCore::ZipFile.new("HardMode.zip")
+          parameters = Java::NetLingalaZip4jModel::ZipParameters.new
+          constants = Java::NetLingalaZip4jUtil::Zip4jConstants
+
+          parameters.setCompressionMethod(constants.COMP_DEFLATE)
+          parameters.setCompressionLevel(constants.DEFLATE_LEVEL_ULTRA)
+
+          Dir["build/*"].each do |n|
+            zipfile.addFolder(n, parameters)
           end
+
           puts "finished -- created HardMode.zip"
         end
 

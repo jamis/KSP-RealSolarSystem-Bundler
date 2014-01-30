@@ -7,6 +7,8 @@ require 'net/https'
 require 'shellwords'
 require 'strscan'
 
+require './jars/zip4j_1.3.2.jar'
+
 # hack, and not very safe
 # TODO: find a safer way to allow open-uri to redirect HTTP->HTTPS
 def OpenURI.redirectable?(uri1, uri2)
@@ -237,7 +239,7 @@ module KSP
         def replace_in_file(pattern, replace, file)
           file = replace_substitutions(file)
           contents = File.read(file).gsub(pattern, replace)
-          File.open(file, "w") { |f| f.write(contents) }
+          File.open(file, "wb") { |f| f.write(contents) }
         end
 
         def extract_block(scanner)
@@ -281,7 +283,7 @@ module KSP
             output << block[:block] if block[:name] != modname
           end
 
-          File.open(file, "w") { |f| f.write(output) }
+          File.open(file, "wb") { |f| f.write(output) }
         end
 
         def download_via_forum
@@ -357,11 +359,12 @@ module KSP
           raise "#{@data['name']} redirected too many times" if redirects > 5
           result = open(URI.parse(url))
 
-          File.open(cached_path, "w") { |f| f.write(result.read) }
+          File.open(cached_path, "wb") { |f| f.write(result.read) }
         end
 
         def unpack_rar
-          command = Shellwords.join(["unrar", "x", File.join("..", "..", cached_path)])
+          command = Shellwords.join([File.join("..", "..", "commands", "unrar"), "x", File.join("..", "..", cached_path)])
+
           Dir.chdir(unpacked_path) do
             if !system(command)
               raise "could not unpack #{self} (#{cached_path})"
@@ -370,10 +373,8 @@ module KSP
         end
 
         def unpack_zip
-          command = Shellwords.join(["unzip", "-q", cached_path, "-d", unpacked_path])
-          if !system(command)
-            raise "could not unpack #{self} (#{cached_path})"
-          end
+          zipfile = Java::NetLingalaZip4jCore::ZipFile.new(cached_path)
+          zipfile.extractAll(unpacked_path)
         end
 
         def unpack_raw
