@@ -11,17 +11,21 @@ Requirements
 
 You'll need Java installed. Most systems do, by default, but if yours doesn't have it, you'll need to download and install it.
 
-You'll also need command-line utilities for `unzip` and `unrar`.
-
 
 Usage
 -----
 
-On Windows, just run the included batch file:
+First, you'll need to open a command prompt, and then navigate to the directory where you unzipped this utility.
+
+On Windows, (assuming extracted the utility to your desktop), that might be something like this:
+
+    cd "C:\Documents and Settings\Owner\Desktop\real-solar-system"
+
+Then, run the included batch file:
 
     real-solar-system.bat --defaults
 
-If you're on a Mac, or using Linux, run the included shell file:
+If you're on a Mac, or using Linux, you'll run the included shell file instead:
 
     ./real-solar-system.sh --defaults
 
