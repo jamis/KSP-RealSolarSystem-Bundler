@@ -62,8 +62,8 @@
   file: EngineIgnitor%20V3.1.zip
   version: 3.1
   gamedata: true
-  post-build: |
-    rm $GAMEDATA/EngineIgnitor/*.cfg
+  post-build:
+    - DELETE $GAMEDATA/EngineIgnitor/*.cfg
   option: "--ignitor"
   category: core
 - name: ECLSS
@@ -102,8 +102,8 @@
   - StretchyTanks
   - NotReady
   - DeleteOnceMoved
-  post-build: |
-    cp $SRC_GAMEDATA/RPL_Tweak_Pack/RT2_Settings_Files\(DeleteOnceMoved\)/*.cfg $GAMEDATA/RemoteTech2
+  post-build:
+    - COPY $SRC_GAMEDATA/RPL_Tweak_Pack/RT2_Settings_Files\(DeleteOnceMoved\)/*.cfg $GAMEDATA/RemoteTech2
   option: "--rpl"
   category: core
 
@@ -204,9 +204,9 @@
 - name: AIES
   option: "--aies"
   url: http://forum.kerbalspaceprogram.com/threads/35383
-  via: forum
-  file: AIES_Aerospace143.zip
-  version: 1.4.3
+  via: manual
+  file: AIES_Aerospace150.zip
+  version: 1.5.0
   gamedata: true
   category: part
 - name: KW Rocketry
@@ -229,8 +229,8 @@
   option: "--fasa"
   url: http://forum.kerbalspaceprogram.com/threads/24867
   via: forum
-  file: FASA3.70.zip
-  version: 3.70
+  file: FASA3.73.zip
+  version: 3.73
   category: part
 - name: Bobcat Soviet Engines Pack
   option: "--soviet"
@@ -264,10 +264,9 @@
   type: zip
   version: 2.1.1
   gamedata: true
-  post-build: |
-    sed 's/mass =.*/mass = 0.005/g' $GAMEDATA/MechJeb2/Parts/MechJeb2_AR202/part.cfg > _.cfg
-    mv _.cfg $GAMEDATA/MechJeb2/Parts/MechJeb2_AR202/part.cfg
-    ruby tools/remove-module.rb $GAMEDATA/MechJeb2/Parts/MechJeb2_AR202/part.cfg ModuleCommand
+  post-build:
+    - REPLACE /mass =.*/mass = 0.005/ $GAMEDATA/MechJeb2/Parts/MechJeb2_AR202/part.cfg
+    - RMMOD ModuleCommand $GAMEDATA/MechJeb2/Parts/MechJeb2_AR202/part.cfg
   category: utility
 - name: Kerbal Engineer Redux
   option: "--kerbal-engineer"
@@ -302,8 +301,8 @@
   via: forum
   file: RftS_Pack_v2.zip
   version: 2
-  post-build: |
-    rm -rf $GAMEDATA/SFJBRealEngines
+  post-build:
+    - RMDIR $GAMEDATA/SFJBRealEngines
   gamedata: true
   category: support
 - name: Exsurgent Engineering (DLL only)
@@ -312,9 +311,9 @@
   via: forum
   file: ExsurgentEngineering.dll
   build: false
-  post-build: |
-    mkdir -p $GAMEDATA/ExsurgentEngineering/Plugins
-    cp $SRC/*.dll $GAMEDATA/ExsurgentEngineering/Plugins
+  post-build:
+    - MKDIR $GAMEDATA/ExsurgentEngineering/Plugins
+    - COPY $SRC/*.dll $GAMEDATA/ExsurgentEngineering/Plugins
   category: support
 - name: TreeLoader
   url: http://forum.kerbalspaceprogram.com/threads/53192
