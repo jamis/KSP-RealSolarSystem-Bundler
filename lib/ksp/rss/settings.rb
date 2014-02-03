@@ -12,7 +12,6 @@ module KSP
         --chutes
         --dre
         --far
-        --ignitor
         --kas
         --kjr
         --kw
@@ -20,7 +19,6 @@ module KSP
         --mj
         --novapunch
         --pf
-        --remote
         --rf
         --rfts
         --rla
@@ -61,10 +59,20 @@ module KSP
       end
 
       def build
-        @mod_list.each { |m| m.download   }
-        @mod_list.each { |m| m.unpack     }
-        @mod_list.each { |m| m.build      }
-        @mod_list.each { |m| m.post_build }
+        @mod_list.each { |m| m.download(self)   }
+        @mod_list.each { |m| m.unpack(self)     }
+        @mod_list.each { |m| m.build(self)      }
+        @mod_list.each { |m| m.post_build(self) }
+      end
+
+      def say(message)
+        puts message
+      end
+
+      def warn_and_abort(message)
+        puts "---------------"
+        puts message
+        exit 1
       end
 
       private

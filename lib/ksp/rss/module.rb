@@ -73,24 +73,24 @@ module KSP
         "#{@data['name']} #{@data['version']}"
       end
 
-      def download
+      def download(reporter)
         if cached?
-          puts " -- cached: #{self}"
+          reporter.say " -- cached: #{self}"
           return
         end
 
-        puts "downloading #{self}"
+        reporter.say "downloading #{self}"
         FileUtils.mkdir_p(File.dirname(cached_path))
-        send :"download_via_#{@data['via']}"
+        send :"download_via_#{@data['via']}", reporter
       end
 
-      def unpack
+      def unpack(reporter)
         if unpacked?
-          puts " -- already unpacked: #{self}"
+          reporter.say " -- already unpacked: #{self}"
           return
         end
 
-        puts "unpacking #{self}"
+        reporter.say "unpacking #{self}"
         FileUtils.mkdir_p(unpacked_path)
 
         case File.extname(file_name).downcase
@@ -118,7 +118,7 @@ module KSP
         @data['url']
       end
 
-      def build(from=unpacked_path)
+      def build(reporter, from=unpacked_path)
         return unless build?
 
         FileUtils.mkdir_p(GAMEDATA_PATH)
@@ -147,7 +147,7 @@ module KSP
                 build_source_dir(item)
               else
                 if File.directory?(item)
-                  gamedata_dir ||= build(item)
+                  gamedata_dir ||= build(reporter, item)
                 else
                   warn "junk file: #{item}"
                 end
@@ -172,7 +172,7 @@ module KSP
         nil
       end
 
-      def post_build
+      def post_build(reporter)
         (@data['post-build'] || []).each do |command|
           case command
             when /^DELETE (.*)/
@@ -286,7 +286,7 @@ module KSP
           File.open(file, "wb") { |f| f.write(output) }
         end
 
-        def download_via_forum
+        def download_via_forum(reporter)
           uri = URI.parse(@data['url'])
           page = uri.read
           url = page[/href="([^"]*?#{Regexp.escape(@data['file'])}.*?)"/, 1]
@@ -294,31 +294,30 @@ module KSP
 
           url = CGI.unescapeHTML(url)
           if url =~ /dropbox\./
-            download_via_dropbox(url)
+            download_via_dropbox(reporter, url)
           elsif url =~ /mediafire/
-            download_via_mediafire(url)
+            download_via_mediafire(reporter, url)
           else
-            download_url(url)
+            download_url(reporter, url)
           end
         end
 
-        def download_via_manual
+        def download_via_manual(reporter)
           cached = File.expand_path("cache")
 
-          puts "----------------"
-          puts "Sadly, #{self} has to be downloaded manually"
-          puts "1. Go to: #{url}"
-          puts "2. Download #{file_name}"
-          puts "3. Move #{file_name} to the folder at #{cached}"
-          puts "4. Rerun this script to continue"
-          puts
-          puts "Sorry for the inconvenience! Blame #{self}..."
-          puts "  they've selected an incompatible web host for their files"
+          reporter.warn_and_abort <<MSG
+Sadly, #{self} has to be downloaded manually
+1. Go to: #{url}
+2. Download #{file_name}
+3. Move #{file_name} to the folder at #{cached}
+4. Rerun this script to continue
 
-          exit 1
+Sorry for the inconvenience! Blame #{self}...
+  they've selected an incompatible web host for their files
+MSG
         end
 
-        def download_via_spaceport
+        def download_via_spaceport(reporter)
           response = Net::HTTP.start(SPACEPORT_URL.host, SPACEPORT_URL.port) do |http|
             request = Net::HTTP::Post.new(SPACEPORT_URL.to_s)
             request.set_form_data 'addonid' => @data['addonid'], 'action' => 'downloadfileaddon'
@@ -328,37 +327,35 @@ module KSP
           end
 
           location = response.body
-          download_url(location)
+          download_url(reporter, location)
         end
 
-        def download_via_direct
-          download_url(@data['download'])
+        def download_via_direct(reporter)
+          download_url(reporter, @data['download'])
         end
 
-        def download_via_dropbox(url)
+        def download_via_dropbox(reporter, url)
           uri = URI.parse(url)
           page = uri.read
           url = page[/href="([^"]*?#{Regexp.escape(@data['file'])}.*?)"/, 1]
           abort "dropbox url is nil for #{@data['name']}" unless url
 
           url = CGI.unescapeHTML(url)
-          download_url(url)
+          download_url(reporter, url)
         end
 
-        def download_via_mediafire(url)
+        def download_via_mediafire(reporter, url)
           uri = URI.parse(url)
           page = uri.read
           url = page[/kNO\s*=\s*"([^"]*?#{Regexp.escape(@data['file'])}.*?)"/, 1]
           abort "mediafire url is nil for #{@data['name']}" unless url
 
           url = CGI.unescapeHTML(url)
-          download_url(url)
+          download_url(reporter, url)
         end
 
-        def download_url(url, redirects=0)
-          raise "#{@data['name']} redirected too many times" if redirects > 5
+        def download_url(reporter, url)
           result = open(URI.parse(url))
-
           File.open(cached_path, "wb") { |f| f.write(result.read) }
         end
 
