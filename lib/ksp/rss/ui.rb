@@ -62,7 +62,7 @@ module KSP
         title = JLabel.new("Available Mods")
         checkboxes = JPanel.new
         scroller = JScrollPane.new(checkboxes)
-        @reporter = JTextArea.new(25, 40)
+        @reporter = JTextArea.new(1, 40)
         @progress = JProgressBar.new
         reporterScroller = JScrollPane.new(@reporter)
         @build_button = JButton.new("Build it!")

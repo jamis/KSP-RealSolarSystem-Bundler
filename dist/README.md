@@ -15,39 +15,17 @@ You'll need Java installed. Most systems do, by default, but if yours doesn't ha
 Usage
 -----
 
-First, you'll need to open a command prompt, and then navigate to the directory where you unzipped this utility.
+Just run the "real-solar-system" script. On Windows, you'll want to run "real-solar-system.bat". On Linux or Mac, run "real-solar-system.sh" instead.
 
-On Windows, (assuming extracted the utility to your desktop), that might be something like this:
+Choose which mods you want (a sensible set of defaults are pre-selected). Then, click the "built it" button.
 
-    cd "C:\Documents and Settings\Owner\Desktop\real-solar-system"
-
-Then, run the included batch file:
-
-    real-solar-system.bat --defaults
-
-If you're on a Mac, or using Linux, you'll run the included shell file instead:
-
-    ./real-solar-system.sh --defaults
-
-This will download the various mods, unpack them, and then install them into a `build` directory wherever you run the script. The build directory contains a KSP GameData folder, as well as folders for source code, ships, and so forth.
+This will download the various mods, unpack them, and then install them into a `build` directory wherever you put the script. The build directory contains a KSP GameData folder, as well as folders for source code, ships, and so forth.
 
 Once finished setting up that `build` directory, it will then zip it up into a `HardMode.zip` file. (The default will be about 180MB in size, but depending on any customizations you make, it could be larger or smaller.)
 
 Copy that `HardMode.zip` file to your KSP installation directory, and unzip it.
 
 That's all!
-
-
-Advanced Usage
---------------
-
-If you want to choose which mods you want, you can specify them on the command-line instead of giving the "--defaults" argument. To see which options are supported, just type:
-
-    real-solar-system.bat --help
-
-Or, if you want the defaults, but want to tweak it a little bit, you can just add the other arguments with the "--defaults" argument:
-
-    real-solar-system.bat --defaults --soviet --no-remote
 
 
 Credits

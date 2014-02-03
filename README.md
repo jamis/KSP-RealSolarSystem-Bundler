@@ -22,9 +22,15 @@ Usage
 
 At it's simplest, you can just run the following command:
 
+    ruby bundler.rb --ui
+
+This presents you with a GUI for selecting mods, and for building the `HardMode.zip` file.
+
+If you want more control, you can pass other options to the script instead:
+
     ruby bundler.rb --defaults
 
-This will download the various mods, unpack them, and then install them into a `build` directory wherever you run the script. The build directory contains a KSP GameData folder, as well as folders for source code, ships, and so forth.
+This will skip the GUI and just grab all the default mods, downloading them, unpacking them, and then installing them into a `build` directory wherever you run the script. The build directory contains a KSP GameData folder, as well as folders for source code, ships, and so forth.
 
 Once that `build` directory is ready, you can copy it into your KSP folder. Or, you can zip it all up:
 
