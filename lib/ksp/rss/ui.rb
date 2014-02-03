@@ -133,6 +133,7 @@ module KSP
       def build_archive
         @build_button.setEnabled(false)
         @reporter.setText("")
+        @progress.setString("")
 
         mods = @mod_list.select { |m| !m.optional? || @selected_mods[m.option] }
         steps = mods.count * 4
