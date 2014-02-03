@@ -183,7 +183,7 @@ module KSP
 
               while monitor.getState == progressMonitor::STATE_BUSY
                 @progress.setValue(monitor.getPercentDone)
-                name = (monitor.getFileName || "").sub(/^.*#{File::SEPARATOR}build#{File::SEPARATOR}/, "")
+                name = (monitor.getFileName || "").sub(/^.*\Wbuild\W/, "")
                 @progress.setString(name)
                 Thread.pass
               end
