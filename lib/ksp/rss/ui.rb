@@ -6,7 +6,6 @@ require './jars/zip4j_1.3.2.jar'
 include Java
 
 import java.awt.Dimension
-import java.awt.Rectangle
 import java.awt.Color
 import java.awt.BorderLayout
 import javax.swing.JButton
@@ -22,6 +21,7 @@ import javax.swing.Box
 import javax.swing.JScrollPane
 import javax.swing.JPanel
 import javax.swing.JOptionPane
+import javax.swing.text.DefaultCaret
 
 module KSP
   module RSS
@@ -45,10 +45,6 @@ module KSP
       def say(message)
         reporter.append(message + "\n")
         reporter.revalidate
-
-        height = reporter.getPreferredSize.getHeight
-        rect = Rectangle.new(0, height, 10, 10)
-        reporter.scrollRectToVisible(rect)
       end
 
       def warn_and_abort(message)
@@ -69,6 +65,11 @@ module KSP
         quit = JButton.new("Exit")
 
         @reporter.setEditable(false)
+        @reporter.getCaret.setUpdatePolicy(DefaultCaret::ALWAYS_UPDATE)
+
+        height = reporter.getPreferredSize.getHeight
+        rect = java.awt.Rectangle.new(0, height, 10, 10)
+        reporter.scrollRectToVisible(rect)
         @progress.setStringPainted(true)
 
         checkboxes.setLayout(BoxLayout.new(checkboxes, BoxLayout::PAGE_AXIS))
@@ -182,17 +183,10 @@ module KSP
 
               while monitor.getState == progressMonitor::STATE_BUSY
                 @progress.setValue(monitor.getPercentDone)
-                name = monitor.getFileName.sub(/^.*#{File::SEPARATOR}build#{File::SEPARATOR}/, "")
+                name = (monitor.getFileName || "").sub(/^.*#{File::SEPARATOR}build#{File::SEPARATOR}/, "")
                 @progress.setString(name)
                 Thread.pass
               end
-            end
-
-            say "done with busy..."
-            while monitor.getResult == progressMonitor::RESULT_WORKING
-              #@progress.setValue(monitor.getPercentDone)
-              #@progress.setString(File.basename(monitor.getFileName))
-              Thread.pass
             end
 
             JOptionPane.showMessageDialog(nil,
