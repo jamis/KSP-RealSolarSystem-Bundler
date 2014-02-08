@@ -110,10 +110,10 @@
 
 # Almost Essential Mods
 - name: Mission Controller Extended
-  url: http://forum.kerbalspaceprogram.com/threads/43645?p=925037&viewfull=1#post925037
+  url: http://forum.kerbalspaceprogram.com/threads/43645?p=953129&viewfull=1
   via: forum
-  file: MissionControllerDevBuild3.rar
-  version: 0.43dev3
+  file: MissionControllerDevBuild6.rar
+  version: 0.43dev6
   ignore:
   - 000_Toolbar
   gamedata: true
@@ -140,7 +140,7 @@
   via: spaceport
   addonid: 38156
   type: zip
-  version: 1.7
+  version: 2.0
   option: "--kjr"
   category: extra
 
@@ -180,8 +180,8 @@
   option: "--warp"
   url: http://forum.kerbalspaceprogram.com/threads/43839
   via: forum
-  file: KSPInterstellar-v0.10.1.zip
-  version: 0.10.1
+  file: KSPInterstellar-v0.10.3.zip
+  version: 0.10.3
   category: interesting
 - name: Infernal Robotics
   option: "--robotics"
@@ -200,14 +200,22 @@
   disabled: |
     Part ranges need to be adjusted (min_alt, max_alt, best_alt, maybe others?)
   category: interesting
+- name: HullCam VDS
+  option: "--hullcam"
+  url: http://forum.kerbalspaceprogram.com/threads/46365
+  via: spaceport
+  addonid: 31171
+  version: 0.2.91
+  gamedata: true
+  category: interesting
 
 # Support part mods
 - name: AIES
   option: "--aies"
   url: http://forum.kerbalspaceprogram.com/threads/35383
-  via: manual
-  file: AIES_Aerospace150.zip
-  version: 1.5.0
+  via: forum
+  file: AIES_Aerospace151.zip
+  version: 1.5.1
   gamedata: true
   category: part
 - name: KW Rocketry
@@ -254,8 +262,8 @@
 - name: Toolbar
   url: http://forum.kerbalspaceprogram.com/threads/60863
   via: forum
-  file: Toolbar-1.4.4.zip
-  version: 1.4.4
+  file: Toolbar-1.5.1.zip
+  version: 1.5.1
   category: utility
 - name: MechJeb
   option: "--mj"
