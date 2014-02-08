@@ -261,7 +261,7 @@
 # Useful utilities
 - name: Toolbar
   url: http://forum.kerbalspaceprogram.com/threads/60863
-  via: forum
+  via: manual
   file: Toolbar-1.5.1.zip
   version: 1.5.1
   category: utility
