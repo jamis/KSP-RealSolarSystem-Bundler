@@ -21,21 +21,22 @@ import javax.swing.Box
 import javax.swing.JScrollPane
 import javax.swing.JPanel
 import javax.swing.JOptionPane
+import javax.swing.JMenuBar
+import javax.swing.JMenu
+import javax.swing.JMenuItem
+import javax.swing.JFileChooser
 import javax.swing.text.DefaultCaret
 
 module KSP
   module RSS
     class UI < JFrame
-      attr_reader :reporter, :progress, :build_button
+      attr_reader :reporter, :progress, :build_button, :checkboxes
 
       def initialize
         super "Real Solar System"
-        @mod_list = ModList.load_list
-
-        @selected_mods = { }
-        Settings::DEFAULTS.each { |opt| @selected_mods[opt] = true }
 
         build_layout
+        load_manifest
 
         setDefaultCloseOperation JFrame::EXIT_ON_CLOSE
         pack
@@ -55,9 +56,23 @@ module KSP
       def build_layout
         self.setPreferredSize(Dimension.new(600, 400))
 
+        menubar = JMenuBar.new
+        menu = JMenu.new("File")
+
+        item = JMenuItem.new("Open Manifest")
+        item.addActionListener { |e| choose_manifest }
+        menu.add(item)
+        item = JMenuItem.new("Exit")
+        item.addActionListener { |e| java.lang.System.exit(0) }
+        menu.add(item)
+
+        menubar.add(menu)
+
+        self.setJMenuBar(menubar)
+
         title = JLabel.new("Available Mods")
-        checkboxes = JPanel.new
-        scroller = JScrollPane.new(checkboxes)
+        @checkboxes = JPanel.new
+        scroller = JScrollPane.new(@checkboxes)
         @reporter = JTextArea.new(1, 40)
         @progress = JProgressBar.new
         reporterScroller = JScrollPane.new(@reporter)
@@ -72,19 +87,7 @@ module KSP
         reporter.scrollRectToVisible(rect)
         @progress.setStringPainted(true)
 
-        checkboxes.setLayout(BoxLayout.new(checkboxes, BoxLayout::PAGE_AXIS))
-
-        @mod_list.each do |mod|
-          if mod.optional? && !mod.disabled?
-            cb = JCheckBox.new(mod.to_s, @selected_mods[mod.option])
-
-            cb.add_action_listener do |evt|
-              @selected_mods[mod.option] = evt.source.isSelected
-            end
-
-            checkboxes.add cb
-          end
-        end
+        @checkboxes.setLayout(BoxLayout.new(@checkboxes, BoxLayout::PAGE_AXIS))
 
         contentPane = JPanel.new
         contentPane.setLayout(BoxLayout.new(contentPane, BoxLayout::LINE_AXIS))
@@ -201,6 +204,35 @@ module KSP
           end
 
           finish_build
+        end
+      end
+
+      def choose_manifest
+        chooser = JFileChooser.new
+        value = chooser.showOpenDialog(self)
+        if value == JFileChooser::APPROVE_OPTION
+          load_manifest(chooser.getSelectedFile.to_s)
+        end
+      end
+
+      def load_manifest(which=nil)
+        @mod_list = ModList.load_list(which)
+
+        @selected_mods = { }
+        Settings::DEFAULTS.each { |opt| @selected_mods[opt] = true }
+
+        @checkboxes.removeAll
+
+        @mod_list.each do |mod|
+          if mod.optional? && !mod.disabled?
+            cb = JCheckBox.new(mod.to_s, @selected_mods[mod.option])
+
+            cb.add_action_listener do |evt|
+              @selected_mods[mod.option] = evt.source.isSelected
+            end
+
+            @checkboxes.add cb
+          end
         end
       end
     end
