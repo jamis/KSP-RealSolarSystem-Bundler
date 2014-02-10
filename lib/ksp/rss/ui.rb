@@ -1,6 +1,5 @@
 require 'fileutils'
-require 'ksp/rss/modlist'
-require 'ksp/rss/settings'
+require 'ksp/rss/manifest'
 require './jars/zip4j_1.3.2.jar'
 
 include Java
@@ -25,6 +24,7 @@ import javax.swing.JMenuBar
 import javax.swing.JMenu
 import javax.swing.JMenuItem
 import javax.swing.JFileChooser
+import javax.swing.filechooser.FileNameExtensionFilter
 import javax.swing.text.DefaultCaret
 
 module KSP
@@ -134,13 +134,42 @@ module KSP
         say "done"
       end
 
+      def resolve_deps_for(name, deps=[])
+        requires = (@manifest[name].requires || []) - deps
+
+        requires.each do |r|
+          deps << r
+          deps.concat resolve_deps_for(r, deps)
+        end
+
+        deps
+      end
+
       def build_archive
         @build_button.setEnabled(false)
         @reporter.setText("")
         @progress.setString("")
 
-        mods = @mod_list.select { |m| !m.optional? || @selected_mods[m.option] }
-        steps = mods.count * 4
+        list = @manifest.mods.select { |name| @manifest[name].required? || @selected_mods[name] }
+
+        # include requirements
+        mod_names = []
+        list.each do |l|
+          mod_names << l
+          mod_names = resolve_deps_for(l, mod_names)
+        end
+
+        mods = mod_names.sort.uniq.map { |name| @manifest[name] }
+        steps = mods.count * 3
+
+        configuration = []
+        @manifest.configure.each do |config|
+          if config['when'].all? { |m| mod_names.include?(m) }
+            primary = config['when'].first
+            configuration << [@manifest[primary], config['actions']]
+            steps += config['actions'].length
+          end
+        end
 
         @progress.setMinimum(0)
         @progress.setMaximum(steps)
@@ -148,7 +177,7 @@ module KSP
         n = 0
 
         Thread.new do
-          FileUtils.rm_f("HardMode.zip")
+          FileUtils.rm_f(@manifest.archive)
           FileUtils.rm_rf("build")
 
           begin
@@ -156,7 +185,13 @@ module KSP
               mods.each { |m| m.download(self);   @progress.setValue(n+=1) }
               mods.each { |m| m.unpack(self);     @progress.setValue(n+=1) }
               mods.each { |m| m.build(self);      @progress.setValue(n+=1) }
-              mods.each { |m| m.post_build(self); @progress.setValue(n+=1) }
+
+              configuration.each do |primary, actions|
+                actions.each do |command|
+                  primary.configure(command)
+                  @progress.setValue(n+=1)
+                end
+              end
             end
 
             if status == :abort
@@ -170,7 +205,7 @@ module KSP
             @progress.setMinimum(0)
             @progress.setMaximum(100)
 
-            zipfile = Java::NetLingalaZip4jCore::ZipFile.new("HardMode.zip")
+            zipfile = Java::NetLingalaZip4jCore::ZipFile.new(@manifest.archive)
             parameters = Java::NetLingalaZip4jModel::ZipParameters.new
             constants = Java::NetLingalaZip4jUtil::Zip4jConstants
             progressMonitor = Java::NetLingalaZip4jProgress::ProgressMonitor
@@ -194,10 +229,10 @@ module KSP
 
             JOptionPane.showMessageDialog(nil,
               "All done!\n\n" +
-              "Your lovingly-crafted \"real solar system\" bundle\n" +
+              "Your lovingly-crafted \"#{@manifest.bundle}\" bundle\n" +
               "has been custom-built just for you. It's all waxed\n" +
               "and fueled and is waiting for you here:\n\n" +
-              File.expand_path("HardMode.zip"))
+              File.expand_path(@manifest.archive))
 
           rescue Exception => e
             say "oops: #{e.class} (#{e.message})"
@@ -209,6 +244,9 @@ module KSP
 
       def choose_manifest
         chooser = JFileChooser.new
+        filter = FileNameExtensionFilter.new("Manifest Files", "manifest")
+        chooser.setFileFilter(filter);
+        chooser.addChoosableFileFilter(filter);
         value = chooser.showOpenDialog(self)
         if value == JFileChooser::APPROVE_OPTION
           load_manifest(chooser.getSelectedFile.to_s)
@@ -216,24 +254,26 @@ module KSP
       end
 
       def load_manifest(which=nil)
-        @mod_list = ModList.load_list(which)
+        @manifest = Manifest.new(which)
 
         @selected_mods = { }
-        Settings::DEFAULTS.each { |opt| @selected_mods[opt] = true }
+        @manifest.defaults.each { |name| @selected_mods[name] = true }
 
         @checkboxes.removeAll
 
-        @mod_list.each do |mod|
-          if mod.optional? && !mod.disabled?
-            cb = JCheckBox.new(mod.to_s, @selected_mods[mod.option])
+        @manifest.each do |mod|
+          unless mod.required?
+            cb = JCheckBox.new(mod.to_s, @selected_mods[mod.name])
 
             cb.add_action_listener do |evt|
-              @selected_mods[mod.option] = evt.source.isSelected
+              @selected_mods[mod.name] = evt.source.isSelected
             end
 
             @checkboxes.add cb
           end
         end
+
+        @checkboxes.revalidate
       end
     end
   end

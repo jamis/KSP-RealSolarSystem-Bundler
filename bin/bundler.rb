@@ -1,13 +1,6 @@
-if ARGV.include?("--ui")
-  require 'ksp/rss/ui'
-  ui = KSP::RSS::UI.new
-  while ui.isVisible
-    Thread.pass
-  end
-  puts "done?"
+require 'ksp/rss/ui'
 
-else
-  require 'ksp/rss/settings'
-  settings = KSP::RSS::Settings.new
-  settings.build
+ui = KSP::RSS::UI.new
+while ui.isVisible
+  Thread.pass
 end

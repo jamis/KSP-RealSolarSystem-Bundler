@@ -24,29 +24,61 @@ module KSP
       SOURCE_PATH = File.join("build", "Source")
       SUBASSEMBLIES_PATH = File.join("build", "Subassemblies")
 
+      attr_reader :version, :requires, :category, :name, :home
+
       def initialize(data)
         @data = data
+
+        @version = data['version']
+        @requires = data['requires']
+        @category = data['category']
+        @name = data['name']
+        @home = data['home']
       end
 
-      def file_name
-        case @data['via']
-          when 'forum', 'manual'
-            @data['file']
-          when 'spaceport'
-            "%s.%s" % [@data['addonid'], @data['type']]
-          when 'direct'
-            File.basename(@data['download'])
-          else
-            raise NotImplementedError, "mod must be via forum or spaceport"
+      def type
+        if @data['type']
+          @data['type']
+        elsif @data['url']
+          File.extname(@data['url'])[1..-1]
+        else
+          nil
         end
       end
 
-      def category
-        @data['category']
+      def uri
+        @uri ||= URI.parse(@data['url'])
       end
 
-      def name
-        @data['name']
+      def file_name
+        @file_name ||= begin
+          if @data['file']
+            @data['file']
+          elsif @data['url']
+            File.basename(uri.path)
+          else
+            normalized = @data['name'].downcase.gsub(/\W/, "")
+            normalized << '-' << version if version
+            normalized << ".#{type}" if type
+            normalized
+          end
+        end
+      end
+
+      def recommended=(r)
+        @recommended = r
+      end
+
+      def recommended?
+        @recommended
+      end
+
+      def required=(r)
+        @required = r
+      end
+
+      def required?
+        @required
       end
 
       def cached_path
@@ -70,7 +102,7 @@ module KSP
       end
 
       def to_s
-        "#{@data['name']} #{@data['version']}"
+        "#{name} #{version}"
       end
 
       def download(reporter)
@@ -100,22 +132,6 @@ module KSP
           else
             raise "unsupported file type: #{file_name} (#{self})"
         end
-      end
-
-      def disabled?
-        @data['disabled']
-      end
-
-      def optional?
-        @data['option']
-      end
-
-      def option
-        @data['option']
-      end
-
-      def url
-        @data['url']
       end
 
       def build(reporter, from=unpacked_path)
@@ -172,28 +188,26 @@ module KSP
         nil
       end
 
-      def post_build(reporter)
-        (@data['post-build'] || []).each do |command|
-          case command
-            when /^DELETE (.*)/
-              delete_file($1)
-            when /^RMDIR (.*)/
-              delete_folder($1)
-            when /^MKDIR (.*)/
-              make_folder($1)
-            when /^COPY (.*)/
-              source, target = $1.split(/ /, 2)
-              copy_file(source, target)
-            when /^REPLACE \/(.*?)\/(.*?)\/ (.*)/
-              pattern = Regexp.new($1)
-              replace = $2
-              file = $3
-              replace_in_file(pattern, replace, file)
-            when /^RMMOD (\S+) (.*)/
-              remove_module($1, $2)
-            else
-              raise NotImplementedError, "unsupported post-build command: #{command.inspect}"
-          end
+      def configure(command)
+        case command
+          when /^DELETE (.*)/
+            delete_file($1)
+          when /^RMDIR (.*)/
+            delete_folder($1)
+          when /^MKDIR (.*)/
+            make_folder($1)
+          when /^COPY (.*)/
+            source, target = $1.split(/ /, 2)
+            copy_file(source, target)
+          when /^REPLACE \/(.*?)\/(.*?)\/ (.*)/
+            pattern = Regexp.new($1)
+            replace = $2
+            file = $3
+            replace_in_file(pattern, replace, file)
+          when /^RMMOD (\S+) (.*)/
+            remove_module($1, $2)
+          else
+            raise NotImplementedError, "unsupported configure command: #{command.inspect}"
         end
       end
 
@@ -286,13 +300,9 @@ module KSP
           File.open(file, "wb") { |f| f.write(output) }
         end
 
-        def download_via_forum(reporter)
-          uri = URI.parse(@data['url'])
-          page = uri.read
-          url = page[/href="([^"]*?#{Regexp.escape(@data['file'])}.*?)"/, 1]
-          abort "download path is nil for #{@data['name']}" unless url
+        def download_via_url(reporter)
+          url = @data['url']
 
-          url = CGI.unescapeHTML(url)
           if url =~ /dropbox\./
             download_via_dropbox(reporter, url)
           elsif url =~ /mediafire/
@@ -307,7 +317,7 @@ module KSP
 
           reporter.warn_and_abort <<MSG
 Sadly, #{self} has to be downloaded manually
-1. Go to: #{url}
+1. Go to: #{home}
 2. Download #{file_name}
 3. Move #{file_name} to the folder at #{cached}
 4. Rerun this script to continue
@@ -330,14 +340,11 @@ MSG
           download_url(reporter, location)
         end
 
-        def download_via_direct(reporter)
-          download_url(reporter, @data['download'])
-        end
-
         def download_via_dropbox(reporter, url)
           uri = URI.parse(url)
+          file = File.basename(uri.path)
           page = uri.read
-          url = page[/href="([^"]*?#{Regexp.escape(@data['file'])}.*?)"/, 1]
+          url = page[/href="([^"]*?#{Regexp.escape(file)}.*?)"/, 1]
           abort "dropbox url is nil for #{@data['name']}" unless url
 
           url = CGI.unescapeHTML(url)
@@ -346,8 +353,9 @@ MSG
 
         def download_via_mediafire(reporter, url)
           uri = URI.parse(url)
+          file = File.basename(uri.path)
           page = uri.read
-          url = page[/kNO\s*=\s*"([^"]*?#{Regexp.escape(@data['file'])}.*?)"/, 1]
+          url = page[/kNO\s*=\s*"([^"]*?#{Regexp.escape(file)}.*?)"/, 1]
           abort "mediafire url is nil for #{@data['name']}" unless url
 
           url = CGI.unescapeHTML(url)

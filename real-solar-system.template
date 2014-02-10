@@ -1,0 +1,81 @@
+bundle: Real Solar System
+archive: rss.zip
+version: 1
+
+required:
+  - Real Solar System
+
+unsupported:
+  Kethane: |
+    Part ranges and grid settings need to be adjusted for RSS. Resource
+    amounts need to be adjusted for each planet.
+  Extraplanetary Launchpads: |
+    Part ranges and grid settings need to be adjusted for RSS. Resource
+    amounts need to be adjusted for each planet.
+  SCANsat: |
+    Part ranges need to be adjusted.
+
+recommended:
+  - Realism Overhaul
+  - Ferram Aerospace Research (FAR)
+  - Deadly Reentry Continued
+  - StretchySRB
+  - RealFuels
+  - RealChutes
+  - Engine Ignitor
+  - ECLSS
+  - TAC Life Support
+  - Remote Tech 2
+  - Realistic Progression LITE
+  - Mission Controller Extended
+  - Visual Enhancements
+  - Procedural Fairings
+  - Kerbal Joint Reinforcement
+  - AIES
+  - KW Rocketry
+  - NovaPunch
+  - FASA
+  - Bobcat Soviet Engines Pack
+  - RLA Stockalike
+  - MechJeb
+  - Kerbal Engineer Redux
+  - Reaching for the Stars Pack
+
+defaults:
+  - Realism Overhaul
+  - Ferram Aerospace Research (FAR)
+  - Deadly Reentry Continued
+  - StretchySRB
+  - RealFuels
+  - RealChutes
+  - TAC Life Support
+  - Realistic Progression LITE
+  - Mission Controller Extended
+  - Visual Enhancements
+  - Procedural Fairings
+  - Kerbal Joint Reinforcement
+  - AIES
+  - KW Rocketry
+  - NovaPunch
+  - RLA Stockalike
+  - MechJeb
+  - Reaching for the Stars Pack
+
+configure:
+  - when: [ "Engine Ignitor" ]
+    actions:
+    - DELETE $GAMEDATA/EngineIgnitor/*.cfg
+  - when: [ "Realistic Progression LITE", "RemoteTech 2" ]
+    actions:
+    - COPY $SRC_GAMEDATA/RPL_Tweak_Pack/RT2_Settings_Files\(DeleteOnceMoved\)/*.cfg $GAMEDATA/RemoteTech2
+  - when: [ "MechJeb", "Mission Controller Extended" ]
+    actions:
+    - REPLACE /mass =.*/mass = 0.005/ $GAMEDATA/MechJeb2/Parts/MechJeb2_AR202/part.cfg
+    - RMMOD ModuleCommand $GAMEDATA/MechJeb2/Parts/MechJeb2_AR202/part.cfg
+  - when: [ "Reaching for the Stars Pack" ]
+    actions:
+    - RMDIR $GAMEDATA/SFJBRealEngines
+  - when: [ "Exsurgent Engineering (DLL only)" ]
+    actions:
+    - MKDIR $GAMEDATA/ExsurgentEngineering/Plugins
+    - COPY $SRC/*.dll $GAMEDATA/ExsurgentEngineering/Plugins
