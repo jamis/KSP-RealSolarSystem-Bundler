@@ -348,6 +348,7 @@ mods:
   home: http://forum.kerbalspaceprogram.com/threads/59005
   via: url
   url: https://github.com/waka324/TextureCompressor/releases/download/2-15-basic/TextureCompressor-2-15-basic.zip
+  version: 2.15
   category: support
   incompatible:
   - Active Texture Management (Aggressive)
@@ -355,6 +356,7 @@ mods:
   home: http://forum.kerbalspaceprogram.com/threads/59005
   via: url
   url: https://github.com/waka324/TextureCompressor/releases/download/2-15-aggressive/TextureCompressor-2-15-aggressive.zip
+  version: 2.15
   category: support
   incompatible:
   - Active Texture Management (Basic)
