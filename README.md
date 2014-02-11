@@ -5,7 +5,7 @@ Real Solar System Bundler
 
 This script is an attempt to "canonicalize" a set of defaults for setting up RSS. These defaults are based on my own preferences, but they form a decent starting point for others who are curious about the mod, and the defaults are easily tweaked if you prefer different settings.
 
-Because this was written for my own use, it is in very rough form. If that bothers you, pull-requests are welcome. :)
+Pull-requests are welcome. :)
 
 Installation
 ------------
@@ -22,23 +22,28 @@ Usage
 
 At it's simplest, you can just run the following command:
 
-    ruby bundler.rb --ui
+    ruby -Ilib bin/bundler.rb
 
-This presents you with a GUI for selecting mods, and for building the `HardMode.zip` file.
+This presents you with a GUI for selecting mods, and for building the archive. Once the archive is built, you can then copy that to your KSP folder, and unzip it.
 
-If you want more control, you can pass other options to the script instead:
+Configuration
+-------------
 
-    ruby bundler.rb --defaults
+To add new mods, or edit the configuration of an existing mod, you'll need to look at the `master.yml` file. This is a YAML-formatted list of mods, with various options for each. The possible options are:
 
-This will skip the GUI and just grab all the default mods, downloading them, unpacking them, and then installing them into a `build` directory wherever you run the script. The build directory contains a KSP GameData folder, as well as folders for source code, ships, and so forth.
+* `name` - the name of the mod (must be unique)
+* `home` - this is the "home" URL of mod (usually a KSP forum thread, but doesn't have to be)
+* `via` - how the mod is to be downloaded. This can be `url` (to specify a direct link to download it), `spaceport` (to specify that a mod is available via the KSP SpacePort site), and `manual` (when a mod cannot be automatically downloaded, for whatever reason).
+* `addonid` - used when `via` is `spaceport`. The `addonid` identifies the mod to be downloaded (and you'll have to view the HTML source on SpacePort to find it).
+* `version` - the current version of the mod
+* `gamedata` - when `true`, the downloaded mod is intended to be unzipped directly into the GameData folder.
+* `category` - the category this mod falls into (one of `core`, `extra`, `interesting`, `utility`, `support` or `part`)
+* `incompatible` - a list of named mods that are incompatible with this mod, and which cannot be installed with it
+* `ignore` - a list of patterns that identify files and directories that may be present in the mod's zip file, but which should be ignored when installing the mod.
+* `requires` - a list of named mods that this mod requires, and which must be installed when this mod is
 
-Once that `build` directory is ready, you can copy it into your KSP folder. Or, you can zip it all up:
+This `master.yml` file is then used in conjunction with manifest template files (see `real-solar-system.template` for an example). The template files define which mods are recommended, which are selected by default, as well as additional steps that should be taken to configure the mods once they are installed. To build a manifest from a template, run the `scripts/generate-manifest.rb` command:
 
-    ruby bundler.rb --zip
+    scripts/generate-manifest.rb real-solar-system.template > real-solar-system.manifest
 
-This will create a file named `HardMode.zip` in the current directory. You can then copy that to your KSP folder, and unzip it.
-
-If you want to choose which mods you want, you can specify them on the command-line instead of giving the "--defaults" argument. To see which options are supported, just type:
-
-    ruby bundler.rb --help
-
+In this way, you could theoretically create manifests for all sorts of different bundles, and not just for Real Solar System.

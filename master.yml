@@ -106,7 +106,6 @@
 - name: Visual Enhancements (Low-Res)
   home: http://forum.kerbalspaceprogram.com/threads/55905
   via: url
-  #url: https://github.com/waka324/VisualEnhancements/releases/download/6-7/VisualEnhancments-6-7.zip
   url: https://github.com/waka324/VisualEnhancements/releases/download/6-7-LowRes/VisualEnhancments-6-7.LowRes.zip
   version: 6.7
   category: extra
@@ -283,11 +282,13 @@
   home: http://forum.kerbalspaceprogram.com/threads/59005
   via: url
   url: https://github.com/waka324/TextureCompressor/releases/download/2-15-basic/TextureCompressor-2-15-basic.zip
+  version: 2.15
   category: support
   incompatible: [ "Active Texture Management (Aggressive)" ]
 - name: Active Texture Management (Aggressive)
   home: http://forum.kerbalspaceprogram.com/threads/59005
   via: url
   url: https://github.com/waka324/TextureCompressor/releases/download/2-15-aggressive/TextureCompressor-2-15-aggressive.zip
+  version: 2.15
   category: support
   incompatible: [ "Active Texture Management (Basic)" ]
