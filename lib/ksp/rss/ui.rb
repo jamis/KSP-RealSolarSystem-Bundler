@@ -7,6 +7,7 @@ include Java
 import java.awt.Dimension
 import java.awt.Color
 import java.awt.BorderLayout
+import java.awt.Font
 import javax.swing.JButton
 import javax.swing.JCheckBox
 import javax.swing.SwingConstants
@@ -281,16 +282,27 @@ module KSP
 
         @checkboxes.removeAll
 
-        @manifest.each do |mod|
-          unless mod.required?
-            cb = JCheckBox.new(mod.to_s, @selected_mods[mod.name])
+        @manifest.categories.each do |category|
+          label = JLabel.new(category.capitalize)
+          label.setFont(label.font.deriveFont(Font::BOLD))
+          @checkboxes.add(label)
+          @checkboxes.add(Box.createRigidArea(Dimension.new(0,5)))
 
-            cb.add_action_listener do |evt|
-              @selected_mods[mod.name] = evt.source.isSelected
+          @manifest.category(category).sort.each do |mod_name|
+            mod = @manifest[mod_name]
+
+            unless mod.required?
+              cb = JCheckBox.new(mod.to_s, @selected_mods[mod.name])
+
+              cb.add_action_listener do |evt|
+                @selected_mods[mod.name] = evt.source.isSelected
+              end
+
+              @checkboxes.add(cb)
             end
-
-            @checkboxes.add cb
           end
+
+          @checkboxes.add(Box.createRigidArea(Dimension.new(0,15)))
         end
 
         @checkboxes.revalidate

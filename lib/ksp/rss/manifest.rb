@@ -10,7 +10,7 @@ module KSP
 
       attr_reader :bundle, :archive, :version
       attr_reader :required, :recommended, :configure, :defaults
-      attr_reader :mods
+      attr_reader :mods, :categories
 
       def initialize(uri=nil)
         uri ||= DEFAULT_URI
@@ -41,6 +41,18 @@ module KSP
         end
 
         @mods = @mod_map.keys.sort
+
+        @category_map = @mod_map.inject({}) do |h,(name,mod)|
+          h[mod.category] ||= []
+          h[mod.category] << name
+          h
+        end
+
+        @categories = @category_map.keys.sort
+      end
+
+      def category(name)
+        @category_map[name]
       end
 
       def [](name)
