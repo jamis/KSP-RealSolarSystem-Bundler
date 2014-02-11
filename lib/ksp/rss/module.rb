@@ -24,7 +24,7 @@ module KSP
       SOURCE_PATH = File.join("build", "Source")
       SUBASSEMBLIES_PATH = File.join("build", "Subassemblies")
 
-      attr_reader :version, :requires, :category, :name, :home
+      attr_reader :version, :requires, :category, :name, :home, :incompatible
 
       def initialize(data)
         @data = data
@@ -34,6 +34,7 @@ module KSP
         @category = data['category']
         @name = data['name']
         @home = data['home']
+        @incompatible = data['incompatible'] || []
       end
 
       def type
@@ -79,6 +80,11 @@ module KSP
 
       def required?
         @required
+      end
+
+      def compatible_with?(mod)
+        !incompatible.include?(mod.name) &&
+          !mod.incompatible.include?(self.name)
       end
 
       def cached_path

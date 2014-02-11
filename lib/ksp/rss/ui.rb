@@ -171,12 +171,32 @@ module KSP
           end
         end
 
+        # all are compatible with each other?
+        all_good = true
+        0.upto(mods.length-2) do |i|
+          m1 = mods[i]
+          (i+1).upto(mods.length-1) do |j|
+            m2 = mods[j]
+            if !m1.compatible_with?(m2)
+              say "\"#{m1}\" is not compatible with \"#{m2}\""
+              all_good = false
+            end
+          end
+        end
+
+        if !all_good
+          say "Incompatible mods are selected, so the build cannot succeed"
+          finish_build
+          return
+        end
+
         @progress.setMinimum(0)
         @progress.setMaximum(steps)
 
         n = 0
 
         Thread.new do
+          say "cleaning previous build..."
           FileUtils.rm_f(@manifest.archive)
           FileUtils.rm_rf("build")
 

@@ -17,7 +17,7 @@ recommended:
 - Remote Tech 2
 - Realistic Progression LITE
 - Mission Controller Extended
-- Visual Enhancements
+- Visual Enhancements (Low-Res)
 - Procedural Fairings
 - Kerbal Joint Reinforcement
 - AIES
@@ -39,7 +39,7 @@ defaults:
 - TAC Life Support
 - Realistic Progression LITE
 - Mission Controller Extended
-- Visual Enhancements
+- Visual Enhancements (Low-Res)
 - Procedural Fairings
 - Kerbal Joint Reinforcement
 - AIES
@@ -140,6 +140,8 @@ mods:
   url: https://bitbucket.org/asmi/ksp/downloads/LifeSupportMod.1.0.15.zip
   version: 1.0.15
   category: core
+  incompatible:
+  - TAC Life Support
 - name: TAC Life Support
   home: http://forum.kerbalspaceprogram.com/threads/40667
   via: spaceport
@@ -147,6 +149,8 @@ mods:
   type: zip
   version: 0.8
   category: core
+  incompatible:
+  - ECLSS
 - name: Remote Tech 2
   home: http://forum.kerbalspaceprogram.com/threads/56399
   via: url
@@ -182,12 +186,22 @@ mods:
   - Toolbar
   gamedata: true
   category: extra
-- name: Visual Enhancements
+- name: Visual Enhancements (Low-Res)
   home: http://forum.kerbalspaceprogram.com/threads/55905
   via: url
   url: https://github.com/waka324/VisualEnhancements/releases/download/6-7-LowRes/VisualEnhancments-6-7.LowRes.zip
   version: 6.7
   category: extra
+  incompatible:
+  - Visual Enhancements (Hi-Res)
+- name: Visual Enhancements (Hi-Res)
+  home: http://forum.kerbalspaceprogram.com/threads/55905
+  via: url
+  url: https://github.com/waka324/VisualEnhancements/releases/download/6-7/VisualEnhancments-6-7.zip
+  version: 6.7
+  category: extra
+  incompatible:
+  - Visual Enhancements (Low-Res)
 - name: Procedural Fairings
   home: http://forum.kerbalspaceprogram.com/threads/39512
   via: spaceport
@@ -330,3 +344,17 @@ mods:
   version: 1.1.3
   gamedata: true
   category: support
+- name: Active Texture Management (Basic)
+  home: http://forum.kerbalspaceprogram.com/threads/59005
+  via: url
+  url: https://github.com/waka324/TextureCompressor/releases/download/2-15-basic/TextureCompressor-2-15-basic.zip
+  category: support
+  incompatible:
+  - Active Texture Management (Aggressive)
+- name: Active Texture Management (Aggressive)
+  home: http://forum.kerbalspaceprogram.com/threads/59005
+  via: url
+  url: https://github.com/waka324/TextureCompressor/releases/download/2-15-aggressive/TextureCompressor-2-15-aggressive.zip
+  category: support
+  incompatible:
+  - Active Texture Management (Basic)
