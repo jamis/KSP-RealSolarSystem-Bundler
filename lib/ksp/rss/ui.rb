@@ -284,7 +284,9 @@ module KSP
 
         @manifest.categories.each do |category|
           label = JLabel.new(category.capitalize)
-          label.setFont(label.font.deriveFont(Font::BOLD))
+          font = label.font.java_send(:deriveFont, [Java::int], Font::BOLD)
+          label.setFont(font)
+
           @checkboxes.add(label)
           @checkboxes.add(Box.createRigidArea(Dimension.new(0,5)))
 
