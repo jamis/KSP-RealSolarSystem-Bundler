@@ -12,8 +12,6 @@ unsupported:
   Extraplanetary Launchpads: |
     Part ranges and grid settings need to be adjusted for RSS. Resource
     amounts need to be adjusted for each planet.
-  SCANsat: |
-    Part ranges need to be adjusted.
 
 recommended:
   - Realism Overhaul
@@ -79,3 +77,10 @@ configure:
     actions:
     - MKDIR $GAMEDATA/ExsurgentEngineering/Plugins
     - COPY $SRC/*.dll $GAMEDATA/ExsurgentEngineering/Plugins
+  - when: [ "SCANsat" ]
+    actions:
+    - REPLACE /max_alt = 500000/max_alt = 1000000/ $GAMEDATA/SCANsat/Scanner 1/part.cfg
+    - REPLACE /max_alt = 800000/max_alt = 1600000/ $GAMEDATA/SCANsat/Scanner 2/part.cfg
+    - REPLACE /best_alt = 750000/max_alt = 1500000/ $GAMEDATA/SCANsat/Scanner 2/part.cfg
+    - REPLACE /max_alt = 500000/max_alt = 1000000/ $GAMEDATA/SCANsat/Scanner 8/part.cfg
+    - REPLACE /best_alt = 250000/max_alt = 500000/ $GAMEDATA/SCANsat/Scanner 8/part.cfg

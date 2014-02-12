@@ -73,6 +73,14 @@ configure:
   actions:
   - MKDIR $GAMEDATA/ExsurgentEngineering/Plugins
   - COPY $SRC/*.dll $GAMEDATA/ExsurgentEngineering/Plugins
+- when:
+  - SCANsat
+  actions:
+  - REPLACE /max_alt = 500000/max_alt = 5000000/ $GAMEDATA/SCANsat/Scanner 1/part.cfg
+  - REPLACE /max_alt = 800000/max_alt = 8000000/ $GAMEDATA/SCANsat/Scanner 2/part.cfg
+  - REPLACE /best_alt = 750000/max_alt = 7500000/ $GAMEDATA/SCANsat/Scanner 2/part.cfg
+  - REPLACE /max_alt = 500000/max_alt = 5000000/ $GAMEDATA/SCANsat/Scanner 8/part.cfg
+  - REPLACE /best_alt = 250000/max_alt = 2500000/ $GAMEDATA/SCANsat/Scanner 8/part.cfg
 mods:
 - name: Real Solar System
   home: http://forum.kerbalspaceprogram.com/threads/55145
@@ -234,6 +242,13 @@ mods:
   via: url
   url: http://www.mediafire.com/download/t9ezf4blxe27i8f/InfernalRobotics0.12.zip
   version: 0.12
+  category: interesting
+- name: SCANsat
+  home: http://forum.kerbalspaceprogram.com/threads/55832
+  via: url
+  url: http://github.com/thatfool/SCAN/releases/download/build5/SCANsat_b5.zip
+  version: b5
+  gamedata: true
   category: interesting
 - name: HullCam VDS
   home: http://forum.kerbalspaceprogram.com/threads/46365
