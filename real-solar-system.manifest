@@ -156,8 +156,8 @@ mods:
 - name: Engine Ignitor
   home: http://forum.kerbalspaceprogram.com/threads/51880
   via: url
-  url: https://www.dropbox.com/s/735b53vy1m7j0py/EngineIgnitor%20V3.1.zip
-  version: 3.1
+  url: https://www.dropbox.com/s/yousr4nxflld9ra/EngineIgnitor%20V3.2.zip
+  version: 3.2
   gamedata: true
   category: core
 - name: ECLSS
@@ -347,7 +347,7 @@ mods:
   via: spaceport
   addonid: 47451
   type: zip
-  version: 0.23.3.1.1
+  version: 0.23.3.1.2
   category: utility
 - name: Kerbal Alarm Clock
   home: http://forum.kerbalspaceprogram.com/threads/24786
