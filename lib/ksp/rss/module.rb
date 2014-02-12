@@ -334,15 +334,7 @@ MSG
         end
 
         def download_via_spaceport(reporter)
-          response = Net::HTTP.start(SPACEPORT_URL.host, SPACEPORT_URL.port) do |http|
-            request = Net::HTTP::Post.new(SPACEPORT_URL.to_s)
-            request.set_form_data 'addonid' => @data['addonid'], 'action' => 'downloadfileaddon'
-            request['X-Requested-With'] = "XMLHttpRequest"
-
-            http.request(request)
-          end
-
-          location = response.body
+          location = post_data(SPACEPORT_URL, 'addonid' => @data['addonid'], 'action' => 'downloadfileaddon')
           download_url(reporter, location)
         end
 
@@ -434,6 +426,39 @@ MSG
           end
 
           result
+        end
+
+        def post_data(url, data)
+          data = data.map { |name, value| "#{name}=#{value}" }.join("&")
+
+          url = java.net.URL.new(url.to_s)
+          connection = url.openConnection
+
+          connection.setRequestMethod "POST"
+          connection.setRequestProperty "Content-Type", "application/x-www-form-urlencoded"
+          connection.setRequestProperty "X-Requested-With", "XMLHttpRequest"
+          connection.setRequestProperty "Content-Length", data.length.to_s
+          connection.setRequestProperty "Content-Language", "en-US"
+
+          connection.setUseCaches false
+          connection.setDoInput true
+          connection.setDoOutput true
+
+          out = java.io.DataOutputStream.new(connection.getOutputStream)
+          out.writeBytes(data)
+          out.flush
+          out.close
+
+          reader = java.io.BufferedReader.new(java.io.InputStreamReader.new(connection.getInputStream))
+          response = ""
+
+          while (line = reader.readLine)
+            response << line
+            response << "\n"
+          end
+
+          reader.close
+          return response
         end
     end
   end
