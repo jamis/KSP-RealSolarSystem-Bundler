@@ -12,14 +12,16 @@
   version: 3
   gamedata: true
   category: core
+  ignore: [ "ModuleManager" ]
+  requires: [ "Module Manager" ]
 - name: Ferram Aerospace Research (FAR)
   home: http://forum.kerbalspaceprogram.com/threads/20451
   via: spaceport
   addonid: 1113
   type: zip
   version: 0.12.5.2
-  ignore: [ "000_Toolbar" ]
-  requires: [ "Toolbar" ]
+  ignore: [ "000_Toolbar", "ModuleManager" ]
+  requires: [ "Toolbar", "Module Manager" ]
   category: core
 - name: Deadly Reentry Continued
   home: http://forum.kerbalspaceprogram.com/threads/54954
@@ -28,6 +30,8 @@
   version: 4.3
   gamedata: true
   category: core
+  ignore: [ "ModuleManager" ]
+  requires: [ "Module Manager" ]
 - name: StretchySRB
   home: http://forum.kerbalspaceprogram.com/threads/57422
   via: url
@@ -42,6 +46,8 @@
   version: 4.3
   gamedata: true
   category: core
+  ignore: [ "ModuleManager" ]
+  requires: [ "Module Manager" ]
 - name: RealChutes
   home: http://forum.kerbalspaceprogram.com/threads/57988
   via: spaceport
@@ -49,6 +55,8 @@
   type: zip
   version: 0.3.3.2
   category: core
+  ignore: [ "ModuleManager" ]
+  requires: [ "Module Manager" ]
 - name: Engine Ignitor
   home: http://forum.kerbalspaceprogram.com/threads/51880
   via: url
@@ -92,7 +100,8 @@
   - StretchyTanks
   - NotReady
   - DeleteOnceMoved
-  requires: [ "TreeLoader" ]
+  - ModuleManager
+  requires: [ "TreeLoader", "Module Manager" ]
   category: core
 - name: Mission Controller Extended
   home: http://forum.kerbalspaceprogram.com/threads/43645
@@ -292,3 +301,10 @@
   version: 2.15
   category: support
   incompatible: [ "Active Texture Management (Basic)" ]
+- name: Module Manager
+  home: http://forum.kerbalspaceprogram.com/threads/55219
+  via: url
+  url: http://www.sarbian.com/sarbian/ModuleManager_1_5_6.dll
+  version: 1.5.6
+  gamedata: true
+  category: support

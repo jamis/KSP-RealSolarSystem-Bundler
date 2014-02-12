@@ -76,11 +76,11 @@ configure:
 - when:
   - SCANsat
   actions:
-  - REPLACE /max_alt = 500000/max_alt = 5000000/ $GAMEDATA/SCANsat/Scanner 1/part.cfg
-  - REPLACE /max_alt = 800000/max_alt = 8000000/ $GAMEDATA/SCANsat/Scanner 2/part.cfg
-  - REPLACE /best_alt = 750000/max_alt = 7500000/ $GAMEDATA/SCANsat/Scanner 2/part.cfg
-  - REPLACE /max_alt = 500000/max_alt = 5000000/ $GAMEDATA/SCANsat/Scanner 8/part.cfg
-  - REPLACE /best_alt = 250000/max_alt = 2500000/ $GAMEDATA/SCANsat/Scanner 8/part.cfg
+  - REPLACE /max_alt = 500000/max_alt = 1000000/ $GAMEDATA/SCANsat/Scanner 1/part.cfg
+  - REPLACE /max_alt = 800000/max_alt = 1600000/ $GAMEDATA/SCANsat/Scanner 2/part.cfg
+  - REPLACE /best_alt = 750000/max_alt = 1500000/ $GAMEDATA/SCANsat/Scanner 2/part.cfg
+  - REPLACE /max_alt = 500000/max_alt = 1000000/ $GAMEDATA/SCANsat/Scanner 8/part.cfg
+  - REPLACE /best_alt = 250000/max_alt = 500000/ $GAMEDATA/SCANsat/Scanner 8/part.cfg
 mods:
 - name: Real Solar System
   home: http://forum.kerbalspaceprogram.com/threads/55145
@@ -96,6 +96,10 @@ mods:
   version: 3
   gamedata: true
   category: core
+  ignore:
+  - ModuleManager
+  requires:
+  - Module Manager
 - name: Ferram Aerospace Research (FAR)
   home: http://forum.kerbalspaceprogram.com/threads/20451
   via: spaceport
@@ -104,8 +108,10 @@ mods:
   version: 0.12.5.2
   ignore:
   - 000_Toolbar
+  - ModuleManager
   requires:
   - Toolbar
+  - Module Manager
   category: core
 - name: Deadly Reentry Continued
   home: http://forum.kerbalspaceprogram.com/threads/54954
@@ -114,6 +120,10 @@ mods:
   version: 4.3
   gamedata: true
   category: core
+  ignore:
+  - ModuleManager
+  requires:
+  - Module Manager
 - name: StretchySRB
   home: http://forum.kerbalspaceprogram.com/threads/57422
   via: url
@@ -128,6 +138,10 @@ mods:
   version: 4.3
   gamedata: true
   category: core
+  ignore:
+  - ModuleManager
+  requires:
+  - Module Manager
 - name: RealChutes
   home: http://forum.kerbalspaceprogram.com/threads/57988
   via: spaceport
@@ -135,6 +149,10 @@ mods:
   type: zip
   version: 0.3.3.2
   category: core
+  ignore:
+  - ModuleManager
+  requires:
+  - Module Manager
 - name: Engine Ignitor
   home: http://forum.kerbalspaceprogram.com/threads/51880
   via: url
@@ -180,8 +198,10 @@ mods:
   - StretchyTanks
   - NotReady
   - DeleteOnceMoved
+  - ModuleManager
   requires:
   - TreeLoader
+  - Module Manager
   category: core
 - name: Mission Controller Extended
   home: http://forum.kerbalspaceprogram.com/threads/43645
@@ -375,3 +395,10 @@ mods:
   category: support
   incompatible:
   - Active Texture Management (Basic)
+- name: Module Manager
+  home: http://forum.kerbalspaceprogram.com/threads/55219
+  via: url
+  url: http://www.sarbian.com/sarbian/ModuleManager_1_5_6.dll
+  version: 1.5.6
+  gamedata: true
+  category: support
