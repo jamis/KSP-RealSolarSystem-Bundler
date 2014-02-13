@@ -113,8 +113,8 @@
 - name: Mission Controller Extended
   home: http://forum.kerbalspaceprogram.com/threads/43645
   via: url
-  url: https://www.dropbox.com/s/5pth0xjwxlxz49i/MissionControllerDevBuild6.rar
-  version: 0.43dev6
+  url: https://www.dropbox.com/s/31ptlvj5s7cupq4/MissionControllerext.50.rar
+  version: 0.50
   ignore: [ "000_Toolbar" ]
   requires: [ "Toolbar" ]
   gamedata: true
@@ -388,7 +388,7 @@
   via: spaceport
   addonid: 47451
   type: zip
-  version: 0.23.3.1.2
+  version: 0.23.3.1.3
   category: utility
 - name: Kerbal Alarm Clock
   home: http://forum.kerbalspaceprogram.com/threads/24786
