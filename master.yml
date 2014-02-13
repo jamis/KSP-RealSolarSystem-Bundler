@@ -153,6 +153,119 @@
   url: http://mirror.nabaal.net/files/kethane/Kethane-0.8.4.zip
   version: 0.8.4
   category: interesting
+  install:
+  - actions:
+    - |
+      SETVALUES "" $GAMEDATA/Kethane/Grid.cfg
+        Moho = 1.02
+        Gilly = 0.06
+        Kerbin = 1.02
+        Mun = 1.03
+        Minmus = 1.065
+        Duna = 1.02
+        Ike = 1.08
+        Dres = 1.03
+        Laythe = 1.02
+        Vall = 0.102
+        Tylo = 1.02
+        Bop = 0.035
+        Pol = 0.11
+        Eeloo = 1.02
+    - |
+      SETVALUES "KethaneResource Generator" $GAMEDATA/Kethane/Resources/Kethane.cfg
+        MinQuantity = 100000
+        MaxQuantity = 5000000
+    - |
+      APPENDMOD "KethaneResource Generator" $GAMEDATA/Kethane/Resources/Kethane.cfg
+        Body
+        {
+          name = Dres
+          DepositCount = 0
+        }
+    - |
+      APPENDMOD "* Body#name=Minmus" $GAMEDATA/Kethane/Resources/Kethane.cfg
+        DepositCount = 0
+    - |
+      SETVALUES "* Module#name=KethaneDetector" $GAMEDATA/Kethane/Parts/kethane_highGain/part.cfg
+        DetectingHeight = 500000
+    - |
+      SETVALUES "* Module#name=KethaneDetector" $GAMEDATA/Kethane/Parts/kethane_sensor_1m/part.cfg
+        DetectingHeight = 2400000
+  - when: [ "RealFuels" ]
+    actions:
+    - |
+      APPENDMOD "Part" $GAMEDATA/Kethane/Parts/kethane_1m_converter/part.cfg
+        MODULE
+        {
+          name = KethaneConverter
+          InputRates
+          {
+            Kethane = 2.25
+            ElectricCharge = 6
+          }
+          OutputRatios
+          {
+            Kerosene = 0.97
+          }
+        }
+        MODULE
+        {
+          name = KethaneConverter
+          InputRates
+          {
+            Kethane = 2.75
+            ElectricCharge = 6
+          }
+          OutputRatios
+          {
+            LiquidOxygen = 1.01
+          }
+        }
+        MODULE
+        {
+          name = KethaneConverter
+          InputRates
+          {
+            Kethane = 1.5
+            ElectricCharge = 8
+          }
+          OutputRatios
+          {
+            Hydrazine = 0.3
+          }
+        }
+    - |
+      APPENDMOD "Part" $GAMEDATA/Kethane/Parts/kethane_2m_converter/part.cfg
+        // RealFuels has a partial config for the 2m converter. This just fills
+        // in the gaps
+        MODULE
+        {
+          name = KethaneConverter
+          HeatProduction = 600
+          InputRates
+          {
+            Kethane = 6.75
+            ElectricCharge = 12
+          }
+          OutputRatios
+          {
+            Kerosene = 1.03
+          }
+        }
+        MODULE
+        {
+          name = KethaneConverter
+          HeatProduction = 1200
+          InputRates
+          {
+            Kethane = 3
+            ElectricCharge = 10
+          }
+          OutputRatios
+          {
+            Hydrazine = 0.85
+          }
+        }
 - name: Extraplanetary Launchpads
   home: http://forum.kerbalspaceprogram.com/threads/59545
   via: url

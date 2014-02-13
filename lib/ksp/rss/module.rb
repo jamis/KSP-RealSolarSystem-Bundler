@@ -7,6 +7,8 @@ require 'net/https'
 require 'shellwords'
 require 'strscan'
 
+require 'ksp/rss/configuration'
+
 require './jars/zip4j_1.3.2.jar'
 
 # hack, and not very safe
@@ -222,9 +224,29 @@ module KSP
             pattern = Regexp.new($1)
             replace = $2
             file = $3
-            replace_in_file(pattern, replace, file)
+            replace_in_file([[pattern, replace]], file)
+          when /^REPLACEALL (.*?)\n(.*)/m
+            file = $1
+            patterns = $2.split(/\n/).map do |line|
+              if line =~ /\/(.*?)\/(.*)\//
+                [Regexp.new($1), $2]
+              else
+                raise "bad replaceall pattern: #{line.inspect}"
+              end
+            end
+            replace_in_file(patterns, file)
           when /^RMMOD (\S+) (.*)/
             remove_module($1, $2)
+          when /^APPENDMOD \"(.*?)\" (.*?)\n(.*)/m
+            path = $1
+            file = $2
+            chunk = $3
+            alter_module(file, path, chunk)
+          when /^SETVALUES \"(.*?)\" (.*?)\n(.*)/m
+            path = $1
+            file = $2
+            chunk = $3
+            alter_module(file, path, chunk, true)
           else
             raise NotImplementedError, "unsupported configure command: #{command.inspect}"
         end
@@ -269,54 +291,45 @@ module KSP
           end
         end
 
-        def replace_in_file(pattern, replace, file)
+        def replace_in_file(patterns, file)
           file = replace_substitutions(file)
-          contents = File.read(file).gsub(pattern, replace)
-          File.open(file, "wb") { |f| f.write(contents) }
-        end
+          contents = File.read(file, mode: "rt")
 
-        def extract_block(scanner)
-          block = "MODULE"
-
-          block << scanner.scan(/\s*{\s*name\s*=\s*/)
-          name = scanner.scan(/\w+/)
-          block << name
-
-          depth = 1
-          while depth > 0
-            block << scanner.scan(/[^{}]*/)
-            bracket = scanner.scan(/[{}]/)
-            block << bracket
-
-            if bracket == "{"
-              depth += 1
-            elsif bracket == "}"
-              depth -= 1
-            end
+          patterns.each do |pattern, replace|
+            contents = contents.gsub(pattern, replace)
           end
 
-          { name: name, block: block }
+          File.open(file, "wt") { |f| f.write(contents) }
         end
 
         def remove_module(modname, file)
           file = replace_substitutions(file)
 
-          output = ""
-          scanner = StringScanner.new(File.read(file))
-          loop do
-            prefix = scanner.scan_until(/^\s*MODULE\b/)
-            if prefix.nil?
-              output << scanner.rest
-              break
-            end
+          config = Configuration.load_file(file)
+          config.remove "* module", 'name' => modname
 
-            output << prefix[0..-7]
+          File.open(file, "wt") { |f| f.write(config.to_s) }
+        end
 
-            block = extract_block(scanner)
-            output << block[:block] if block[:name] != modname
+        def alter_module(file, path, chunk, overwrite=false)
+          file = replace_substitutions(file)
+          config = Configuration.load_file(file)
+
+          path, conditions = path.split(/#/, 2)
+          path ||= ""
+          conditions = (conditions || "").split(/;/).inject({}) do |h, pair|
+            k, v = pair.split(/=/)
+            h[k] = v
+            h
           end
 
-          File.open(file, "wb") { |f| f.write(output) }
+          if overwrite
+            config.set path, conditions, chunk
+          else
+            config.add path, conditions, chunk
+          end
+
+          File.open(file, "wt") { |f| f.write(config.to_s) }
         end
 
         def download_via_url(reporter)

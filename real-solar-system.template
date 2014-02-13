@@ -6,9 +6,6 @@ required:
   - Real Solar System
 
 unsupported:
-  Kethane: |
-    Part ranges and grid settings need to be adjusted for RSS. Resource
-    amounts need to be adjusted for each planet.
   Extraplanetary Launchpads: |
     Part ranges and grid settings need to be adjusted for RSS. Resource
     amounts need to be adjusted for each planet.

@@ -38,13 +38,13 @@ module KSP
       FILTER_RECCOMMENDED = 1
       FILTER_ALL = 2
 
-      def initialize
-        super "Real Solar System"
+      def initialize(*args)
+        super "Mod Bundler"
 
         @mod_filter = FILTER_DEFAULTS
 
         build_layout
-        load_manifest
+        load_manifest(args.first)
 
         setDefaultCloseOperation JFrame::EXIT_ON_CLOSE
         pack
@@ -253,6 +253,10 @@ module KSP
 
           rescue Exception => e
             say "oops: #{e.class} (#{e.message})"
+            warn "#{e.class} (#{e.message})"
+            e.backtrace.each do |line|
+              warn "  #{line}"
+            end
           end
 
           finish_build
