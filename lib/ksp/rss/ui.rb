@@ -329,12 +329,34 @@ module KSP
               mod = @manifest[mod_name]
 
               cb = JCheckBox.new(mod.to_s, @selected_mods[mod.name])
+              cb.setAlignmentX(java.awt.Component::LEFT_ALIGNMENT)
 
               cb.add_action_listener do |evt|
                 @selected_mods[mod.name] = evt.source.isSelected
               end
 
               @checkboxes.add(cb)
+
+              if mod.description
+                desc_panel = JPanel.new
+                desc_panel.setLayout(BoxLayout.new(desc_panel, BoxLayout::LINE_AXIS))
+                desc_panel.setAlignmentX(java.awt.Component::LEFT_ALIGNMENT)
+
+                description = JTextArea.new(1, 20)
+                font = description.font.java_send(:deriveFont, [Java::int, Java::float], Font::PLAIN, description.font.size * 0.8)
+                description.setFont(font)
+                description.setForeground(Color.gray)
+                description.setLineWrap(true)
+                description.setWrapStyleWord(true)
+                description.setEditable(false)
+                description.setOpaque(false)
+                description.setText(mod.description.strip)
+
+                desc_panel.add(Box.createRigidArea(Dimension.new(30,0)))
+                desc_panel.add(description)
+
+                @checkboxes.add(desc_panel)
+              end
             end
 
             @checkboxes.add(Box.createRigidArea(Dimension.new(0,15)))

@@ -56,6 +56,8 @@ mods:
   version: 5.5
   gamedata: true
   category: core
+  description: |
+    Resizes and rearranges the Kerbal's solar system to more closely resemeber that of Earth's.
 - name: Realism Overhaul
   home: http://forum.kerbalspaceprogram.com/threads/59207
   via: url
@@ -67,6 +69,8 @@ mods:
   - ModuleManager
   requires:
   - Module Manager
+  description: |
+    Resizes many stock and modded parts, assigns more realisitic electrical numbers, fixes Deadly Reentry to support a real-sized solar system, and lots of similar changes.
 - name: Ferram Aerospace Research (FAR)
   home: http://forum.kerbalspaceprogram.com/threads/20451
   via: spaceport
@@ -80,6 +84,8 @@ mods:
   - Toolbar
   - Module Manager
   category: core
+  description: |
+    Adds a more realistic atmospheric drag model. This WILL change the way you build rockets and airplanes!
 - name: Deadly Reentry Continued
   home: http://forum.kerbalspaceprogram.com/threads/54954
   via: url
@@ -91,6 +97,8 @@ mods:
   - ModuleManager
   requires:
   - Module Manager
+  description: |
+    Implements heating caused by atmospheric effects. Be careful how you reenter atmosphere, or you'll blow up!
 - name: StretchySRB
   home: http://forum.kerbalspaceprogram.com/threads/57422
   via: url
@@ -98,6 +106,8 @@ mods:
   version: 8.1
   gamedata: true
   category: core
+  description: |
+    Adds fuel tanks that can be stretched to increase volume.
 - name: RealFuels
   home: http://forum.kerbalspaceprogram.com/threads/64118
   via: url
@@ -109,6 +119,8 @@ mods:
   - ModuleManager
   requires:
   - Module Manager
+  description: |
+    Adds various real rocket fuels, and tweaks engines to support them.
 - name: RealChutes
   home: http://forum.kerbalspaceprogram.com/threads/57988
   via: spaceport
@@ -120,6 +132,8 @@ mods:
   - ModuleManager
   requires:
   - Module Manager
+  description: |
+    More realistic parachute behavior!
 - name: Engine Ignitor
   home: http://forum.kerbalspaceprogram.com/threads/51880
   via: url
@@ -130,6 +144,8 @@ mods:
   install:
   - actions:
     - DELETE $GAMEDATA/EngineIgnitor/*.cfg
+  description: |
+    Did you know that real rocket engines can't necessarily be restarted arbitrarily? Level up your realism and see just how hard rocket science can really be.
 - name: ECLSS
   home: http://forum.kerbalspaceprogram.com/threads/58127
   via: url
@@ -138,6 +154,8 @@ mods:
   category: core
   incompatible:
   - TAC Life Support
+  description: |
+    Adds oxygen and CO2 as resources. If you run out of breathable air, your Kerbals die! (Not compatible with TAC Life Support.)
 - name: TAC Life Support
   home: http://forum.kerbalspaceprogram.com/threads/40667
   via: spaceport
@@ -147,6 +165,8 @@ mods:
   category: core
   incompatible:
   - ECLSS
+  description: |
+    Adds oxygen, water, and food as resources. If you run out, your Kerbals die! (Not compatible with ECLSS.)
 - name: Remote Tech 2
   home: http://forum.kerbalspaceprogram.com/threads/56399
   via: url
@@ -155,6 +175,8 @@ mods:
   type: zip
   version: 1.3.3-fix2
   category: core
+  description: |
+    Unmanned probes will require a network connection back to KSC. Build out your communications network to control those remote probes!
 - name: Realistic Progression LITE
   home: http://forum.kerbalspaceprogram.com/threads/58135
   via: url
@@ -173,6 +195,8 @@ mods:
   - TreeLoader
   - Module Manager
   category: core
+  description: |
+    Changes the stock tech tree to create a more realistic tech progression.
   install:
   - when:
     - Remote Tech 2
@@ -189,6 +213,8 @@ mods:
   - Toolbar
   gamedata: true
   category: extra
+  description: |
+    Adds money to the game! Build your rockets, but mind your budget. Take on missions and contracts to earn money and science.
 - name: Visual Enhancements (Low-Res)
   home: http://forum.kerbalspaceprogram.com/threads/55905
   via: url
@@ -197,6 +223,8 @@ mods:
   category: extra
   incompatible:
   - Visual Enhancements (Hi-Res)
+  description: |
+    Adds procedural clouds and city lights! The hi-res version will require more RAM than the low-res version.
 - name: Visual Enhancements (Hi-Res)
   home: http://forum.kerbalspaceprogram.com/threads/55905
   via: url
@@ -205,6 +233,8 @@ mods:
   category: extra
   incompatible:
   - Visual Enhancements (Low-Res)
+  description: |
+    Adds procedural clouds and city lights! The low-res version is recommended if you're strapped for RAM.
 - name: Procedural Fairings
   home: http://forum.kerbalspaceprogram.com/threads/39512
   via: spaceport
@@ -212,6 +242,8 @@ mods:
   type: zip
   version: 2.4.3
   category: extra
+  description: |
+    Only really necessary if using FAR, this will allow you to add fairings that shape themselves to any payload.
 - name: Kerbal Joint Reinforcement
   home: http://forum.kerbalspaceprogram.com/threads/55657
   via: spaceport
@@ -219,12 +251,16 @@ mods:
   type: zip
   version: 2.0
   category: extra
+  description: |
+    No more wobbly rockets! Increases the strength of the joints between parts on your spacecraft. This is especially necessary with Real Solar System and friends.
 - name: Kethane
   home: http://forum.kerbalspaceprogram.com/threads/23979
   via: url
   url: http://mirror.nabaal.net/files/kethane/Kethane-0.8.4.zip
   version: 0.8.4
   category: interesting
+  description: |
+    Adds a new resource called "Kethane", as well as parts for discovering, mining, and processing it.
   install:
   - actions:
     - |
@@ -346,18 +382,24 @@ mods:
   type: zip
   version: 0.4.5
   category: interesting
+  description: |
+    Adds pipes, anchors, winches, and more. Transfer fuel and other resources by connecting ships in orbit, without docking. Vastly increases the usefulness of kerbal EVAs.
 - name: KSP Interstellar
   home: http://forum.kerbalspaceprogram.com/threads/43839
   via: url
   url: https://bitbucket.org/FractalUK/kspinstellar/downloads/KSPInterstellar-v0.10.3.zip
   version: 0.10.3
   category: interesting
+  description: |
+    Adds some near (and far) future tech, but not without making you work for it! Adds some powerful parts, without feeling overbalanced.
 - name: Infernal Robotics
   home: http://forum.kerbalspaceprogram.com/threads/37707
   via: url
   url: http://www.mediafire.com/download/t9ezf4blxe27i8f/InfernalRobotics0.12.zip
   version: 0.12
   category: interesting
+  description: |
+    Adds hinges, rails, and other motorized parts that you can use to make your crafts more dynamic.
 - name: SCANsat
   home: http://forum.kerbalspaceprogram.com/threads/55832
   via: url
@@ -365,6 +407,8 @@ mods:
   version: b5
   gamedata: true
   category: interesting
+  description: |
+    Map planets from orbit! Includes biome and anomaly detection.
   install:
   - actions:
     - REPLACE /max_alt = 500000/max_alt = 1000000/ $GAMEDATA/SCANsat/Scanner 1/part.cfg
@@ -380,6 +424,8 @@ mods:
   version: 0.2.91
   gamedata: true
   category: interesting
+  description: |
+    Strap some cameras onto your rocket and see what your spaceship sees.
 - name: AIES
   home: http://forum.kerbalspaceprogram.com/threads/35383
   via: url
@@ -387,6 +433,8 @@ mods:
   version: 1.5.1
   gamedata: true
   category: part
+  description: |
+    New rocket engines, fuel tanks, and more.
 - name: KW Rocketry
   home: http://forum.kerbalspaceprogram.com/threads/51037
   via: spaceport
@@ -394,6 +442,8 @@ mods:
   type: zip
   version: 2.5.6B
   category: part
+  description: |
+    New rocket engines, fuel tanks, and more, including some really big parts.
 - name: NovaPunch
   home: http://forum.kerbalspaceprogram.com/threads/3870
   via: spaceport
@@ -401,6 +451,8 @@ mods:
   type: zip
   version: 2.03
   category: part
+  description: |
+    New rocket engines, fuel tanks, and more, including some really REALLY big parts.
 - name: FASA
   home: http://forum.kerbalspaceprogram.com/threads/24867
   via: spaceport
@@ -408,6 +460,8 @@ mods:
   type: zip
   version: 3.73
   category: part
+  description: |
+    Gemini and Mercury parts, but also a lot of other useful bits.
 - name: Bobcat Soviet Engines Pack
   home: http://forum.kerbalspaceprogram.com/threads/24724
   via: spaceport
@@ -415,6 +469,8 @@ mods:
   type: zip
   version: 2.0.0
   category: part
+  description: |
+    Soviet engines and spacecraft.
 - name: RLA Stockalike
   home: http://forum.kerbalspaceprogram.com/threads/24593
   via: spaceport
@@ -422,12 +478,16 @@ mods:
   type: zip
   version: 0.9.4
   category: part
+  description: |
+    Tiny rocket parts! Engines, fuel tanks, and structural elements.
 - name: Toolbar
   home: http://forum.kerbalspaceprogram.com/threads/60863
   via: url
   url: http://blizzy.de/toolbar/Toolbar-1.5.2.zip
   version: 1.5.2
   category: utility
+  description: |
+    Adds a toolbar that other plugins can add buttons to. Not terribly useful by itself, though.
 - name: MechJeb
   home: http://mechjeb.com
   via: spaceport
@@ -436,6 +496,8 @@ mods:
   version: 2.1.1
   gamedata: true
   category: utility
+  description: |
+    The original autopilot mod, and still one of the best.
   install:
   - when:
     - Mission Controller Extended
@@ -450,6 +512,8 @@ mods:
   version: 0.6.2.3
   gamedata: true
   category: utility
+  description: |
+    Number cruncher -- see what your delta-v budget is. Also shows you transfer windows and the like.
 - name: Ship Manifest
   home: http://forum.kerbalspaceprogram.com/threads/62270
   via: spaceport
@@ -457,6 +521,8 @@ mods:
   type: zip
   version: 0.23.3.1.3
   category: utility
+  description: |
+    Move resources (including Kerbals!) between parts and docked vessels, without EVAing.
 - name: Kerbal Alarm Clock
   home: http://forum.kerbalspaceprogram.com/threads/24786
   via: spaceport
@@ -464,6 +530,8 @@ mods:
   type: zip
   version: 2.7.0
   category: utility
+  description: |
+    Never miss a transfer window, SOI transistion, or maneuver node again.
 - name: Reaching for the Stars Pack
   home: http://forum.kerbalspaceprogram.com/threads/57833?p=773847&viewfull=1#post773847
   via: url
@@ -473,6 +541,8 @@ mods:
   - Exsurgent Engineering (DLL only)
   gamedata: true
   category: support
+  description: |
+    NathanKell's engine tweaks, used in his "Reaching for the Stars" forum thread. Strikes a good balance between hardcore realism and stock.
   install:
   - actions:
     - RMDIR $GAMEDATA/SFJBRealEngines
@@ -495,6 +565,8 @@ mods:
   version: 1.1.3
   gamedata: true
   category: support
+  description: |
+    Try a number of alternate tech trees.
 - name: Active Texture Management (Basic)
   home: http://forum.kerbalspaceprogram.com/threads/59005
   via: url
@@ -503,6 +575,8 @@ mods:
   category: support
   incompatible:
   - Active Texture Management (Aggressive)
+  description: |
+    Compacts textures so KSP uses less memory. The first time you start KSP with this installed, it will take a long time. It's much faster after that, though.
 - name: Active Texture Management (Aggressive)
   home: http://forum.kerbalspaceprogram.com/threads/59005
   via: url
@@ -511,6 +585,8 @@ mods:
   category: support
   incompatible:
   - Active Texture Management (Basic)
+  description: |
+    Aggressively compacts textures so KSP uses less memory. The first time you start KSP with this installed, it will take a VERY long time. It's much faster after that, though.
 - name: Module Manager
   home: http://forum.kerbalspaceprogram.com/threads/55219
   via: url

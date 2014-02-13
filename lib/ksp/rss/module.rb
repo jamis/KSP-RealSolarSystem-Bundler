@@ -27,6 +27,7 @@ module KSP
       SUBASSEMBLIES_PATH = File.join("build", "Subassemblies")
 
       attr_reader :version, :requires, :category, :name, :home, :incompatible
+      attr_reader :description
 
       def initialize(data)
         @data = data
@@ -37,6 +38,7 @@ module KSP
         @name = data['name']
         @home = data['home']
         @incompatible = data['incompatible'] || []
+        @description = data['description']
       end
 
       def type
