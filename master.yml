@@ -563,3 +563,105 @@
   gamedata: true
   category: support
   visible: false
+- name: MechJeb for All
+  home: http://forum.kerbalspaceprogram.com/threads/68142
+  via: url
+  url: https://copy.com/1IYqbVtmMESd/enMechJeb.zip?download=1
+  category: utility
+  requires: [ "Module Manager", "MechJeb" ]
+  description: >
+    From Enneract Space Industries, this is a Module Manager patch that
+    adds MechJeb functionality to all command pods.
+- name: AIES Antennas for RemoteTech2
+  home: http://forum.kerbalspaceprogram.com/threads/68142
+  via: url
+  url: https://copy.com/RjeJO7RgvP2r/enAIES-RemoteTech.zip?download=1
+  category: utility
+  requires: [ "Module Manager", "Remote Tech 2", "AIES" ]
+  description: >
+    From Enneract Space Industries, this is a Module Manager patch that
+    adds RemoteTech functionality to AIES antennas.
+- name: Tweakable Wheels
+  home: http://forum.kerbalspaceprogram.com/threads/68530
+  via: url
+  url: https://www.dropbox.com/s/toogrcufzwzc90o/TweakableWheels.zip
+  category: utility
+  requires: [ "Module Manager" ]
+  ignore: [ "ModuleManager", "__MACOSX" ]
+  description: >
+    Tweak the torque, power, brakes and more of individual wheels, giving
+    you finer control over your rovers.
+- name: Tweakable Everything
+  home: http://forum.kerbalspaceprogram.com/threads/64711
+  via: spaceport
+  type: zip
+  addonid: 50465
+  category: utility
+  requires: [ "Module Manager" ]
+  ignore: [ "ModuleManager" ]
+  description: >
+    Makes a bunch of things tweakable in the editor, like solar panels, 
+    docking ports, gimbal settings, ladders, RCS, and more.
+- name: RCS Build Aid
+  home: http://forum.kerbalspaceprogram.com/threads/35996
+  via: spaceport
+  type: zip
+  addonid: 20842
+  category: utility
+  version: 0.4.4
+  gamedata: true
+  description: >
+    Helps you position your RCS thrusters exactly where you need them
+    to be.
+- name: Enhanced Navball
+  home: http://forum.kerbalspaceprogram.com/threads/50524
+  via: spaceport
+  type: zip
+  addonid: 34117
+  version: 1.2
+  category: utility
+  gamedata: true
+  description: >
+    Adds new vectors to the navball, and makes it easier to find markers.
+- name: Navball Docking Alignment Indicator
+  home: http://forum.kerbalspaceprogram.com/threads/54303
+  via: spaceport
+  type: zip
+  addonid: 37300
+  version: 2
+  category: utility
+  description: >
+    Adds a new vector to the navball, allowing you to align your ship
+    easily with your target.
+- name: Docking Port Alignment Indicator
+  home: http://forum.kerbalspaceprogram.com/threads/43901
+  via: spaceport
+  addonid: 27265
+  type: zip
+  version: 3.0
+  category: utility
+  requires: [ "Toolbar" ]
+  ignore: [ "000_Toolbar" ]
+  description: >
+    Adds a new display to help you align with a targeted docking port.
+- name: RasterPropMonitor
+  home: http://forum.kerbalspaceprogram.com/threads/57603
+  via: url
+  url: https://github.com/Mihara/RasterPropMonitor/releases/download/v0.14/RasterPropMonitor.0.14.zip
+  version: 0.14
+  category: utility
+  requires: [ "Module Manager" ]
+  ignore: [ "ModuleManager" ]
+  description: >
+    Vastly improves the IVA experience by adding dynamic displays with
+    real information to all stock command modules.
+- name: Kerbal Space Industries MFD
+  home: http://forum.kerbalspaceprogram.com/threads/66198
+  via: url
+  url: https://www.dropbox.com/s/fes6y44etptxrtm/KSI_MFD_1_1d.zip
+  version: 1.1d
+  category: utility
+  requires: [ "RasterPropMonitor" ]
+  description: >
+    Builds on RasterPropMonitor to give a very usable IVA experience.
+    Fly an entire mission without ever looking outside your ship!

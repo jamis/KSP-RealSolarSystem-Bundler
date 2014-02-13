@@ -67,7 +67,7 @@ module KSP
       end
 
       def build_layout
-        self.setPreferredSize(Dimension.new(600, 400))
+        self.setPreferredSize(Dimension.new(700, 600))
 
         menubar = JMenuBar.new
         menu = JMenu.new("File")
