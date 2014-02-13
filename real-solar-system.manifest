@@ -687,7 +687,7 @@ mods:
   via: url
   url: https://github.com/Mihara/RasterPropMonitor/releases/download/v0.14/RasterPropMonitor.0.14.zip
   version: 0.14
-  category: utility
+  category: interesting
   requires:
   - Module Manager
   ignore:
@@ -699,7 +699,7 @@ mods:
   via: url
   url: https://www.dropbox.com/s/fes6y44etptxrtm/KSI_MFD_1_1d.zip
   version: 1.1d
-  category: utility
+  category: interesting
   requires:
   - RasterPropMonitor
   description: |
