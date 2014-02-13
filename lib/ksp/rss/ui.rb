@@ -280,17 +280,24 @@ module KSP
       end
 
       def filter_mods(list)
-        list.select do |mod|
-          case @mod_filter
-            when FILTER_DEFAULTS
-              @manifest.defaults.include?(mod)
-            when FILTER_RECCOMMENDED
-              @manifest.defaults.include?(mod) ||
-                @manifest.recommended.include?(mod)
-            when FILTER_ALL
-              true
-            else
-              raise "Unknown filter value: #{@mod_filter}"
+        list.select do |mod_name|
+          mod = @manifest[mod_name]
+
+          if !mod.visible? || mod.required?
+            # invisible and required mods are never listed
+            false
+          else
+            case @mod_filter
+              when FILTER_DEFAULTS
+                @manifest.defaults.include?(mod_name)
+              when FILTER_RECCOMMENDED
+                @manifest.defaults.include?(mod_name) ||
+                  @manifest.recommended.include?(mod_name)
+              when FILTER_ALL
+                true
+              else
+                raise "Unknown filter value: #{@mod_filter}"
+            end
           end
         end
       end
@@ -321,15 +328,13 @@ module KSP
             mods.each do |mod_name|
               mod = @manifest[mod_name]
 
-              unless mod.required?
-                cb = JCheckBox.new(mod.to_s, @selected_mods[mod.name])
+              cb = JCheckBox.new(mod.to_s, @selected_mods[mod.name])
 
-                cb.add_action_listener do |evt|
-                  @selected_mods[mod.name] = evt.source.isSelected
-                end
-
-                @checkboxes.add(cb)
+              cb.add_action_listener do |evt|
+                @selected_mods[mod.name] = evt.source.isSelected
               end
+
+              @checkboxes.add(cb)
             end
 
             @checkboxes.add(Box.createRigidArea(Dimension.new(0,15)))

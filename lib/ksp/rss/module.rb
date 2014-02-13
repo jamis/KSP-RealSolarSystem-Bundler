@@ -105,6 +105,10 @@ module KSP
         @data.fetch('build', true)
       end
 
+      def visible?
+        @data.fetch('visible', true)
+      end
+
       def unpacked?
         File.exists?(unpacked_path)
       end

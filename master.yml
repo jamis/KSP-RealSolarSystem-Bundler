@@ -414,6 +414,7 @@
   url: https://github.com/careo/ExsurgentEngineering/raw/rework_smartergimbal/ExsurgentEngineering/obj/Release/ExsurgentEngineering.dll
   build: false
   category: support
+  visible: false
   install:
   - actions:
     - MKDIR $GAMEDATA/ExsurgentEngineering/Plugins
@@ -447,3 +448,4 @@
   version: 1.5.6
   gamedata: true
   category: support
+  visible: false
