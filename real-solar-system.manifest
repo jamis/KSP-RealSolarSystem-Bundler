@@ -1,7 +1,7 @@
 ---
 bundle: Real Solar System
 archive: rss.zip
-version: 1
+version: 2
 required:
 - Real Solar System
 recommended:
@@ -145,7 +145,7 @@ mods:
   - actions:
     - DELETE $GAMEDATA/EngineIgnitor/*.cfg
   description: |
-    Did you know that real rocket engines can't necessarily be restarted arbitrarily? Level up your realism and see just how hard rocket science can really be.
+    Did you know that real rocket engines can't generally be restarted arbitrarily? Level up your realism and see just how hard rocket science can really be.
 - name: ECLSS
   home: http://forum.kerbalspaceprogram.com/threads/58127
   via: url

@@ -5,9 +5,12 @@ require './jars/zip4j_1.3.2.jar'
 include Java
 
 import java.awt.Dimension
+import java.awt.Point
 import java.awt.Color
 import java.awt.BorderLayout
 import java.awt.Font
+import java.awt.Desktop
+import java.awt.Insets
 import javax.swing.JButton
 import javax.swing.JCheckBox
 import javax.swing.SwingConstants
@@ -79,7 +82,7 @@ module KSP
         self.setJMenuBar(menubar)
 
         @checkboxes = JPanel.new
-        scroller = JScrollPane.new(@checkboxes)
+        @scroller = JScrollPane.new(@checkboxes)
         @reporter = JTextArea.new(1, 40)
         @progress = JProgressBar.new
         reporterScroller = JScrollPane.new(@reporter)
@@ -111,7 +114,7 @@ module KSP
 
         listPane.add(combo)
         listPane.add(Box.createRigidArea(Dimension.new(0,5)))
-        listPane.add(scroller)
+        listPane.add(@scroller)
 
         infoPane.add(reporterScroller)
         infoPane.add(@progress)
@@ -328,6 +331,10 @@ module KSP
             mods.each do |mod_name|
               mod = @manifest[mod_name]
 
+              checkbox_panel = JPanel.new
+              checkbox_panel.setLayout(BoxLayout.new(checkbox_panel, BoxLayout::LINE_AXIS))
+              checkbox_panel.setAlignmentX(java.awt.Component::LEFT_ALIGNMENT)
+
               cb = JCheckBox.new(mod.to_s, @selected_mods[mod.name])
               cb.setAlignmentX(java.awt.Component::LEFT_ALIGNMENT)
 
@@ -335,7 +342,30 @@ module KSP
                 @selected_mods[mod.name] = evt.source.isSelected
               end
 
-              @checkboxes.add(cb)
+              checkbox_panel.add(cb)
+
+              if Desktop.isDesktopSupported
+                cb.setText(cb.text + " -")
+
+                link = JButton.new
+                link.setText "<html><u>link</u></html>"
+                link.setFont(cb.font)
+                link.setForeground(Color.blue)
+                link.setHorizontalAlignment(javax.swing.SwingConstants::LEFT)
+                link.setAlignmentX(java.awt.Component::LEFT_ALIGNMENT)
+                link.setBorder(nil)
+                link.setBorderPainted(false)
+                link.setMargin(Insets.new(0, 0, 0, 0))
+                link.setOpaque(false)
+                link.setToolTipText(mod.home)
+                link.add_action_listener { |evt| open_url(mod.home) }
+
+                checkbox_panel.add(link)
+
+                checkbox_panel.add(Box.createGlue)
+              end
+
+              @checkboxes.add(checkbox_panel)
 
               if mod.description
                 desc_panel = JPanel.new
@@ -350,6 +380,7 @@ module KSP
                 description.setWrapStyleWord(true)
                 description.setEditable(false)
                 description.setOpaque(false)
+                description.getCaret.setUpdatePolicy(DefaultCaret::NEVER_UPDATE)
                 description.setText(mod.description.strip)
 
                 desc_panel.add(Box.createRigidArea(Dimension.new(30,0)))
@@ -364,6 +395,12 @@ module KSP
         end
 
         @checkboxes.revalidate
+        @scroller.getViewport.setViewPosition(Point.new(0,0))
+      end
+
+      def open_url(url)
+        uri = java.net.URI.new(url)
+        Desktop.getDesktop.browse(uri)
       end
     end
   end

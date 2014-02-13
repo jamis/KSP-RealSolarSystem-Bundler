@@ -87,7 +87,7 @@
     - actions:
       - DELETE $GAMEDATA/EngineIgnitor/*.cfg
   description: >
-    Did you know that real rocket engines can't necessarily be restarted
+    Did you know that real rocket engines can't generally be restarted
     arbitrarily? Level up your realism and see just how hard rocket
     science can really be.
 - name: ECLSS
