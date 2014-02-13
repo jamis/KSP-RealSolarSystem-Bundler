@@ -170,17 +170,9 @@ module KSP
           mod_names = resolve_deps_for(l, mod_names)
         end
 
-        mods = mod_names.sort.uniq.map { |name| @manifest[name] }
-        steps = mods.count * 3
-
-        configuration = []
-        @manifest.configure.each do |config|
-          if config['when'].all? { |m| mod_names.include?(m) }
-            primary = config['when'].first
-            configuration << [@manifest[primary], config['actions']]
-            steps += config['actions'].length
-          end
-        end
+        mod_names = mod_names.sort.uniq
+        mods = mod_names.map { |name| @manifest[name] }
+        steps = mods.count * 4
 
         # all are compatible with each other?
         all_good = true
@@ -213,16 +205,10 @@ module KSP
 
           begin
             status = catch :terminate do
-              mods.each { |m| m.download(self);   @progress.setValue(n+=1) }
-              mods.each { |m| m.unpack(self);     @progress.setValue(n+=1) }
-              mods.each { |m| m.build(self);      @progress.setValue(n+=1) }
-
-              configuration.each do |primary, actions|
-                actions.each do |command|
-                  primary.configure(command)
-                  @progress.setValue(n+=1)
-                end
-              end
+              mods.each { |m| m.download(self);     @progress.setValue(n+=1) }
+              mods.each { |m| m.unpack(self);       @progress.setValue(n+=1) }
+              mods.each { |m| m.build(self);        @progress.setValue(n+=1) }
+              mods.each { |m| m.install(mod_names); @progress.setValue(n+=1) }
             end
 
             if status == :abort

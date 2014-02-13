@@ -9,7 +9,7 @@ output = {
   'version' => template['version']
 }
 
-%w{required recommended defaults configure}.each do |section|
+%w{required recommended defaults}.each do |section|
   output[section] = template[section]
 end
 

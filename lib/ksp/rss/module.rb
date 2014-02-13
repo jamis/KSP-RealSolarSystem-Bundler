@@ -194,6 +194,19 @@ module KSP
         nil
       end
 
+      def install(siblings)
+        (@data['install'] || []).each do |set|
+          if set['when']
+            matches = siblings & set['when']
+            next unless matches.length == set['when'].length
+          end
+
+          set['actions'].each do |command|
+            configure(command)
+          end
+        end
+      end
+
       def configure(command)
         case command
           when /^DELETE (.*)/

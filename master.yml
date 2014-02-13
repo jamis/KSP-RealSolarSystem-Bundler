@@ -64,6 +64,9 @@
   version: 3.2
   gamedata: true
   category: core
+  install:
+    - actions:
+      - DELETE $GAMEDATA/EngineIgnitor/*.cfg
 - name: ECLSS
   home: http://forum.kerbalspaceprogram.com/threads/58127
   via: url
@@ -103,6 +106,10 @@
   - ModuleManager
   requires: [ "TreeLoader", "Module Manager" ]
   category: core
+  install:
+  - when: [ "Remote Tech 2" ]
+    actions:
+    - COPY $SRC_GAMEDATA/RPL_Tweak_Pack/RT2_Settings_Files\(DeleteOnceMoved\)/*.cfg $GAMEDATA/RemoteTech2
 - name: Mission Controller Extended
   home: http://forum.kerbalspaceprogram.com/threads/43645
   via: url
@@ -179,6 +186,13 @@
   version: b5
   gamedata: true
   category: interesting
+  install:
+  - actions:
+    - REPLACE /max_alt = 500000/max_alt = 1000000/ $GAMEDATA/SCANsat/Scanner 1/part.cfg
+    - REPLACE /max_alt = 800000/max_alt = 1600000/ $GAMEDATA/SCANsat/Scanner 2/part.cfg
+    - REPLACE /best_alt = 750000/max_alt = 1500000/ $GAMEDATA/SCANsat/Scanner 2/part.cfg
+    - REPLACE /max_alt = 500000/max_alt = 1000000/ $GAMEDATA/SCANsat/Scanner 8/part.cfg
+    - REPLACE /best_alt = 250000/max_alt = 500000/ $GAMEDATA/SCANsat/Scanner 8/part.cfg
 - name: HullCam VDS
   home: http://forum.kerbalspaceprogram.com/threads/46365
   via: spaceport
@@ -243,6 +257,11 @@
   version: 2.1.1
   gamedata: true
   category: utility
+  install:
+  - when: [ "Mission Controller Extended" ]
+    actions:
+    - REPLACE /mass =.*/mass = 0.005/ $GAMEDATA/MechJeb2/Parts/MechJeb2_AR202/part.cfg
+    - RMMOD ModuleCommand $GAMEDATA/MechJeb2/Parts/MechJeb2_AR202/part.cfg
 - name: Kerbal Engineer Redux
   home: http://forum.kerbalspaceprogram.com/threads/18230
   via: spaceport
@@ -273,12 +292,19 @@
   requires: [ "Exsurgent Engineering (DLL only)" ]
   gamedata: true
   category: support
+  install:
+  - actions:
+    - RMDIR $GAMEDATA/SFJBRealEngines
 - name: Exsurgent Engineering (DLL only)
   home: http://forum.kerbalspaceprogram.com/threads/57833?p=773847&viewfull=1#post773847
   via: url
   url: https://github.com/careo/ExsurgentEngineering/raw/rework_smartergimbal/ExsurgentEngineering/obj/Release/ExsurgentEngineering.dll
   build: false
   category: support
+  install:
+  - actions:
+    - MKDIR $GAMEDATA/ExsurgentEngineering/Plugins
+    - COPY $SRC/*.dll $GAMEDATA/ExsurgentEngineering/Plugins
 - name: TreeLoader
   home: http://forum.kerbalspaceprogram.com/threads/53192
   via: spaceport
