@@ -41,6 +41,8 @@ module KSP
       FILTER_RECCOMMENDED = 1
       FILTER_ALL = 2
 
+      SUPPORTED_MANIFEST_VERSION = 2
+
       def initialize(*args)
         super "Mod Bundler"
 
@@ -306,8 +308,17 @@ module KSP
       end
 
       def load_manifest(which=nil)
-        @manifest = Manifest.new(which)
+        manifest = Manifest.new(which)
 
+        if manifest.version < SUPPORTED_MANIFEST_VERSION
+          JOptionPane.showMessageDialog(nil, "The manifest file you've requested is too old.\nPlease find an updated version.")
+          return
+        elsif manifest.version > SUPPORTED_MANIFEST_VERSION
+          JOptionPane.showMessageDialog(nil, "Your copy of the mod bundler is out of date.\nPlease install a newer version and try again.")
+          return
+        end
+
+        @manifest = manifest
         @selected_mods = { }
         @manifest.defaults.each { |name| @selected_mods[name] = true }
 
