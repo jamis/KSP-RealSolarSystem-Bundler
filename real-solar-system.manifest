@@ -58,6 +58,54 @@ mods:
   category: core
   description: |
     Resizes and rearranges the Kerbal's solar system to more closely resemeber that of Earth's.
+- name: RSS - 10x Scaled Kerbin System
+  home: http://forum.kerbalspaceprogram.com/threads/55145?p=852178&viewfull=1#post852178
+  via: url
+  url: http://www.infradead.org/~jsimmons/RealSolarSystem.cfg
+  build: false
+  category: core
+  description: |
+    An alternate config for RSS - keeps the Kerbin system arranged as with stock, but bumps sizes and distances up 10x for a more "realistic" experience.
+  incompatible:
+  - RSS - With Planet Factory Planets
+  - RSS - 1/10 Scale Solar System
+  install:
+  - actions:
+    - COPY $SRC/*.cfg $GAMEDATA/RealSolarSystem
+- name: RSS - With Planet Factory Planets
+  home: http://forum.kerbalspaceprogram.com/threads/55145?p=894879&viewfull=1#post894879
+  via: url
+  url: http://www.mediafire.com/download/zp6rsiz316c21d1/RSSconfig3.zip
+  category: core
+  description: |
+    An alternate config for RSS - uses the Planet Factory planets to flesh out the solar system.
+  incompatible:
+  - RSS - 10x Scaled Kerbin System
+  - RSS - 1/10 Scale Solar System
+  requires:
+  - Krags Planet Factory
+  install:
+  - actions:
+    - COPY $SRC/GameData/BoulderCo/*.cfg $GAMEDATA/BoulderCo
+    - COPY $SRC/GameData/RealSolarSystem/*.cfg $GAMEDATA/RealSolarSystem
+    - COPY $SRC/GameData/PlanetFactory/PluginData/PlanetFactory/*.png $GAMEDATA/PlanetFactory/PluginData/PlanetFactory
+- name: RSS - 1/10 Scale Solar System
+  home: http://forum.kerbalspaceprogram.com/threads/55145?p=935476&viewfull=1#post935476
+  via: url
+  url: http://www.mediafire.com/download/obxd71mvdm5t6a0/RSSconfigSmall.zip
+  category: core
+  description: |
+    An alternate config for RSS - shrinks everything to 1/10 size (the size of the stock Kerbin system), and uses the Planet Factory planets to flesh out the solar system.
+  requires:
+  - Krags Planet Factory
+  incompatible:
+  - RSS - 10x Scaled Kerbin System
+  - RSS - With Planet Factory Planets
+  install:
+  - actions:
+    - COPY $SRC/GameData/BoulderCo/*.cfg $GAMEDATA/BoulderCo
+    - COPY $SRC/GameData/RealSolarSystem/*.cfg $GAMEDATA/RealSolarSystem
+    - COPY $SRC/GameData/PlanetFactory/PluginData/PlanetFactory/*.png $GAMEDATA/PlanetFactory/PluginData/PlanetFactory
 - name: Realism Overhaul
   home: http://forum.kerbalspaceprogram.com/threads/59207
   via: url
@@ -253,6 +301,19 @@ mods:
   category: extra
   description: |
     No more wobbly rockets! Increases the strength of the joints between parts on your spacecraft. This is especially necessary with Real Solar System and friends.
+- name: Kerbal ISP Difficulty Scaler
+  home: http://forum.kerbalspaceprogram.com/threads/52882
+  via: spaceport
+  addonid: 36616
+  type: zip
+  version: 1.3.2
+  category: extra
+  ignore:
+  - 000_Toolbar
+  requires:
+  - Toolbar
+  description: |
+    Allows you to adjust engine ISPs to more closely match how ISP works in real life. This can increase the difficulty of merely reaching orbit significantly!
 - name: Kethane
   home: http://forum.kerbalspaceprogram.com/threads/23979
   via: url
@@ -704,3 +765,12 @@ mods:
   - RasterPropMonitor
   description: |
     Builds on RasterPropMonitor to give a very usable IVA experience. Fly an entire mission without ever looking outside your ship!
+- name: Krags Planet Factory
+  home: http://forum.kerbalspaceprogram.com/threads/60318
+  via: spaceport
+  addonid: 43212
+  type: zip
+  category: interesting
+  gamedata: true
+  description: |
+    Adds new and challenging planets to explore!
