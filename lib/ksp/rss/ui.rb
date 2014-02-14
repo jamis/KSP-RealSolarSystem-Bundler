@@ -95,6 +95,11 @@ module KSP
         combo.setSelectedIndex(@mod_filter)
         combo.addActionListener { |e| refilter_displayed_mods(combo.getSelectedIndex) }
 
+        pref = combo.getPreferredSize
+        max = combo.getMaximumSize
+        max.height = pref.height
+        combo.setMaximumSize(max)
+
         @reporter.setEditable(false)
         @reporter.getCaret.setUpdatePolicy(DefaultCaret::ALWAYS_UPDATE)
 
@@ -406,6 +411,7 @@ module KSP
         end
 
         @checkboxes.revalidate
+
         @scroller.getViewport.setViewPosition(Point.new(0,0))
       end
 
