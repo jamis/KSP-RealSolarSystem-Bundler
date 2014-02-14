@@ -333,7 +333,7 @@ module KSP
 
           if mods.any?
             label = JLabel.new(category.capitalize)
-            font = label.font.java_send(:deriveFont, [Java::int], Font::BOLD)
+            font = Font.new(label.font.name, Font::BOLD, label.font.size)
             label.setFont(font)
 
             @checkboxes.add(label)
@@ -384,7 +384,7 @@ module KSP
                 desc_panel.setAlignmentX(java.awt.Component::LEFT_ALIGNMENT)
 
                 description = JTextArea.new(1, 20)
-                font = description.font.java_send(:deriveFont, [Java::int, Java::float], Font::PLAIN, description.font.size * 0.8)
+                font = Font.new(description.font.name, Font::PLAIN, description.font.size * 0.8)
                 description.setFont(font)
                 description.setForeground(Color.gray)
                 description.setLineWrap(true)
