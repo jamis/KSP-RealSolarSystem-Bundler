@@ -744,3 +744,11 @@
   gamedata: true
   description: >
     Adds new and challenging planets to explore!
+- name: TAC Fuel Balancer
+  home: http://forum.kerbalspaceprogram.com/threads/25823
+  via: spaceport
+  addonid: 8745
+  type: zip
+  category: utility
+  description: >
+    Evenly transfer fuel into or out of multiple tanks, simultaneously!
