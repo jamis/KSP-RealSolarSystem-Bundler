@@ -63,7 +63,7 @@ module KSP
             File.basename(uri.path)
           else
             normalized = @data['name'].downcase.gsub(/\W/, "")
-            normalized << '-' << version if version
+            normalized << '-' << version.to_s if version
             normalized << ".#{type}" if type
             normalized
           end
