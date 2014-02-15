@@ -2,7 +2,9 @@
   home: http://forum.kerbalspaceprogram.com/threads/55145
   via: url
   url: https://www.dropbox.com/s/0fvwylbxnn30kf7/RealSolarSystem_v5_5.zip
-  version: 5.5
+  version: "5.5"
+  #url: https://www.dropbox.com/s/wt7bh2g4g7u8ykd/RealSolarSystem_v6_pre1.zip
+  #version: "6-pre1"
   gamedata: true
   category: core
   description: >
@@ -58,7 +60,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/59207
   via: url
   url: https://www.dropbox.com/s/ykgan4pgdvpvc31/RealismOverhaul_v3.zip
-  version: 3
+  version: "3"
   gamedata: true
   category: core
   ignore: [ "ModuleManager" ]
@@ -72,7 +74,7 @@
   via: spaceport
   addonid: 1113
   type: zip
-  version: 0.12.5.2
+  version: "0.12.5.2"
   ignore: [ "000_Toolbar", "ModuleManager" ]
   requires: [ "Toolbar", "Module Manager" ]
   category: core
@@ -83,7 +85,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/54954
   via: url
   url: https://www.dropbox.com/s/l5a9x6vqwsr5uxs/DeadlyReentryCont_v4.3.zip
-  version: 4.3
+  version: "4.3"
   gamedata: true
   category: core
   ignore: [ "ModuleManager" ]
@@ -95,7 +97,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/57422
   via: url
   url: https://www.dropbox.com/s/uyqs13yltsy02nj/StretchySRB_v8_1.zip
-  version: 8.1
+  version: "8.1"
   gamedata: true
   category: core
   description: >
@@ -104,7 +106,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/64118
   via: url
   url: https://www.dropbox.com/s/kkz4brqigwtlnnr/RealFuels_v4_3.zip
-  version: 4.3
+  version: "4.3"
   gamedata: true
   category: core
   ignore: [ "ModuleManager" ]
@@ -116,7 +118,7 @@
   via: spaceport
   addonid: 40204
   type: zip
-  version: 0.3.3.2
+  version: "0.3.3.2"
   category: core
   ignore: [ "ModuleManager" ]
   requires: [ "Module Manager" ]
@@ -126,7 +128,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/51880
   via: url
   url: https://www.dropbox.com/s/yousr4nxflld9ra/EngineIgnitor%20V3.2.zip
-  version: 3.2
+  version: "3.2"
   gamedata: true
   category: core
   install:
@@ -140,7 +142,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/58127
   via: url
   url: https://bitbucket.org/asmi/ksp/downloads/LifeSupportMod.1.0.15.zip
-  version: 1.0.15
+  version: "1.0.15"
   category: core
   incompatible: [ "TAC Life Support" ]
   description: >
@@ -151,7 +153,7 @@
   via: spaceport
   addonid: 26610
   type: zip
-  version: 0.8
+  version: "0.8"
   category: core
   incompatible: [ "ECLSS" ]
   description: >
@@ -162,7 +164,7 @@
   via: spaceport
   addonid: 38721
   type: zip
-  version: 1.3.3
+  version: "1.3.3"
   category: core
   requires: [ "Module Manager", "Remote Tech 2 (hotfix)" ]
   ignore: [ "ModuleManager" ]
@@ -172,7 +174,7 @@
 - name: Remote Tech 2 (hotfix)
   via: url
   url: http://www.mediafire.com/download/dncc8qu44t30a90/RemoteTech2_2014.01.08.22.30.zip
-  version: 1.3.3 fixpack 2
+  version: "1.3.3 fixpack 2"
   visible: false
   build: false
   category: core
@@ -184,7 +186,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/58135
   via: url
   url: https://www.dropbox.com/s/ilmgr6ckrgwvj6m/RPL_V18c_0_23Hotfix.rar
-  version: 18c
+  version: "18c"
   ignore:
   - DeadlyReentry
   - ModularFuelTanks
@@ -206,7 +208,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/43645
   via: url
   url: https://www.dropbox.com/s/ndt6jt348blfmfi/MissionControllerext.51.rar
-  version: 0.51
+  version: "0.51"
   ignore: [ "000_Toolbar" ]
   requires: [ "Toolbar" ]
   gamedata: true
@@ -218,7 +220,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/55905
   via: url
   url: https://github.com/waka324/VisualEnhancements/releases/download/6-7-LowRes/VisualEnhancments-6-7.LowRes.zip
-  version: 6.7
+  version: "6.7"
   category: extra
   incompatible: [ "Visual Enhancements (Hi-Res)" ]
   description: >
@@ -228,7 +230,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/55905
   via: url
   url: https://github.com/waka324/VisualEnhancements/releases/download/6-7/VisualEnhancments-6-7.zip
-  version: 6.7
+  version: "6.7"
   category: extra
   incompatible: [ "Visual Enhancements (Low-Res)" ]
   description: >
@@ -239,7 +241,7 @@
   via: spaceport
   addonid: 22991
   type: zip
-  version: 2.4.3
+  version: "2.4.3"
   category: extra
   description: >
     Only really necessary if using FAR, this will allow you to add fairings
@@ -249,7 +251,7 @@
   via: spaceport
   addonid: 38156
   type: zip
-  version: 2.0
+  version: "2.0"
   category: extra
   description: >
     No more wobbly rockets! Increases the strength of the joints between
@@ -260,7 +262,7 @@
   via: spaceport
   addonid: 36616
   type: zip
-  version: 1.3.2
+  version: "1.3.2"
   category: extra
   ignore: [ "000_Toolbar" ]
   requires: [ "Toolbar" ]
@@ -272,7 +274,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/23979
   via: url
   url: http://mirror.nabaal.net/files/kethane/Kethane-0.8.4.zip
-  version: 0.8.4
+  version: "0.8.4"
   category: interesting
   description: >
     Adds a new resource called "Kethane", as well as parts for discovering,
@@ -395,7 +397,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/59545
   via: url
   url: http://taniwha.org/~bill/Extraplanetary_Launchpads_v3.7.zip
-  version: 3.7
+  version: "3.7"
   gamedata: true
   category: interesting
   requires: [ "Kethane" ]
@@ -408,7 +410,7 @@
   via: spaceport
   addonid: 3998
   type: zip
-  version: 0.4.5
+  version: "0.4.5"
   category: interesting
   description: >
     Adds pipes, anchors, winches, and more. Transfer fuel and other resources
@@ -418,7 +420,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/43839
   via: url
   url: https://bitbucket.org/FractalUK/kspinstellar/downloads/KSPInterstellar-v0.10.3.zip
-  version: 0.10.3
+  version: "0.10.3"
   category: interesting
   description: >
     Adds some near (and far) future tech, but not without making you work
@@ -427,7 +429,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/37707
   via: url
   url: http://www.mediafire.com/download/t9ezf4blxe27i8f/InfernalRobotics0.12.zip
-  version: 0.12
+  version: "0.12"
   category: interesting
   gamedata: true
   ignore: [ "000_Toolbar" ]
@@ -439,7 +441,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/55832
   via: url
   url: http://github.com/thatfool/SCAN/releases/download/build5/SCANsat_b5.zip
-  version: b5
+  version: "b5"
   gamedata: true
   category: interesting
   description: >
@@ -456,7 +458,7 @@
   via: spaceport
   addonid: 31171
   type: zip
-  version: 0.2.91
+  version: "0.2.91"
   gamedata: true
   category: interesting
   description: >
@@ -466,7 +468,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/35383
   via: url
   url: http://www.mediafire.com/download/c8efj64k6izx6xc/AIES_Aerospace151.zip
-  version: 1.5.1
+  version: "1.5.1"
   gamedata: true
   category: part
   description: >
@@ -476,7 +478,7 @@
   via: spaceport
   addonid: 2109
   type: zip
-  version: 2.5.6B
+  version: "2.5.6B"
   category: part
   description: >
     New rocket engines, fuel tanks, and more, including some really
@@ -486,7 +488,7 @@
   via: spaceport
   addonid: 4372
   type: zip
-  version: 2.03
+  version: "2.03"
   category: part
   description: >
     New rocket engines, fuel tanks, and more, including some really
@@ -496,7 +498,7 @@
   via: spaceport
   addonid: 10374
   type: zip
-  version: 3.73
+  version: "3.73"
   category: part
   description: >
     Gemini and Mercury parts, but also a lot of other useful bits.
@@ -505,7 +507,7 @@
   via: spaceport
   addonid: 5943
   type: zip
-  version: 2.0.0
+  version: "2.0.0"
   category: part
   description: >
     Soviet engines and spacecraft.
@@ -514,7 +516,7 @@
   via: spaceport
   addonid: 10062
   type: zip
-  version: 0.9.4
+  version: "0.9.4"
   category: part
   description: >
     Tiny rocket parts! Engines, fuel tanks, and structural
@@ -523,7 +525,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/60863
   via: url
   url: http://blizzy.de/toolbar/Toolbar-1.5.3.zip
-  version: 1.5.3
+  version: "1.5.3"
   category: utility
   description: >
     Adds a toolbar that other plugins can add buttons to. Not
@@ -533,7 +535,7 @@
   via: spaceport
   addonid: 3679
   type: zip
-  version: 2.1.1
+  version: "2.1.1"
   gamedata: true
   category: utility
   description: >
@@ -548,7 +550,7 @@
   via: spaceport
   addonid: 3081
   type: zip
-  version: 0.6.2.3
+  version: "0.6.2.3"
   gamedata: true
   category: utility
   description: >
@@ -559,7 +561,7 @@
   via: spaceport
   addonid: 47451
   type: zip
-  version: 0.23.3.1.3
+  version: "0.23.3.1.3"
   category: utility
   description: >
     Move resources (including Kerbals!) between parts and docked vessels,
@@ -569,7 +571,7 @@
   via: spaceport
   addonid: 7625
   type: zip
-  version: 2.7.0
+  version: "2.7.0"
   category: utility
   description: >
     Never miss a transfer window, SOI transistion, or maneuver node again.
@@ -577,7 +579,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/57833?p=773847&viewfull=1#post773847
   via: url
   url: https://www.dropbox.com/s/1fg0d4z428nn1vi/RftS_Pack_v2.zip
-  version: 2
+  version: "2"
   requires: [ "Exsurgent Engineering (DLL only)" ]
   gamedata: true
   category: support
@@ -603,7 +605,7 @@
   via: spaceport
   addonid: 36739
   type: zip
-  version: 1.1.3
+  version: "1.1.3"
   gamedata: true
   category: support
   description: >
@@ -612,7 +614,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/59005
   via: url
   url: https://github.com/waka324/TextureCompressor/releases/download/2-15-basic/TextureCompressor-2-15-basic.zip
-  version: 2.15
+  version: "2.15"
   category: support
   incompatible: [ "Active Texture Management (Aggressive)" ]
   description: >
@@ -623,7 +625,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/59005
   via: url
   url: https://github.com/waka324/TextureCompressor/releases/download/2-15-aggressive/TextureCompressor-2-15-aggressive.zip
-  version: 2.15
+  version: "2.15"
   category: support
   incompatible: [ "Active Texture Management (Basic)" ]
   description: >
@@ -634,7 +636,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/55219
   via: url
   url: http://www.sarbian.com/sarbian/ModuleManager_1_5_6.dll
-  version: 1.5.6
+  version: "1.5.6"
   gamedata: true
   category: support
   visible: false
@@ -683,7 +685,7 @@
   type: zip
   addonid: 20842
   category: utility
-  version: 0.4.4
+  version: "0.4.4"
   gamedata: true
   description: >
     Helps you position your RCS thrusters exactly where you need them
@@ -693,7 +695,7 @@
   via: spaceport
   type: zip
   addonid: 34117
-  version: 1.2
+  version: "1.2"
   category: utility
   gamedata: true
   description: >
@@ -703,7 +705,7 @@
   via: spaceport
   type: zip
   addonid: 37300
-  version: 2
+  version: "2"
   category: utility
   description: >
     Adds a new vector to the navball, allowing you to align your ship
@@ -713,7 +715,7 @@
   via: spaceport
   addonid: 27265
   type: zip
-  version: 3.0
+  version: "3.0"
   category: utility
   requires: [ "Toolbar" ]
   ignore: [ "000_Toolbar" ]
@@ -723,7 +725,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/57603
   via: url
   url: https://github.com/Mihara/RasterPropMonitor/releases/download/v0.14/RasterPropMonitor.0.14.zip
-  version: 0.14
+  version: "0.14"
   category: interesting
   requires: [ "Module Manager" ]
   ignore: [ "ModuleManager" ]
@@ -734,7 +736,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/66198
   via: url
   url: https://www.dropbox.com/s/fes6y44etptxrtm/KSI_MFD_1_1d.zip
-  version: 1.1d
+  version: "1.1d"
   category: interesting
   requires: [ "RasterPropMonitor" ]
   description: >
@@ -761,7 +763,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/63536
   via: url
   url: https://www.dropbox.com/s/xjzvt6gm3gnoup5/AlternisKerbol-v0.1.zip
-  version: 0.1
+  version: "0.1"
   category: core
   gamedata: true
   incompatible: [ "Real Solar System", "Krags Planet Factory" ]
@@ -771,7 +773,7 @@
   home: http://forum.kerbalspaceprogram.com/threads/63536
   via: url
   url: http://www.mumech.com/uploads/AlternisClouds-v1.1.zip
-  version: 1.1
+  version: "1.1"
   category: extra
   build: false
   requires: [ "Alternis Kerbol", "Visual Enhancements (Low-Res)" ]

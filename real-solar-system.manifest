@@ -53,7 +53,7 @@ mods:
   home: http://forum.kerbalspaceprogram.com/threads/55145
   via: url
   url: https://www.dropbox.com/s/0fvwylbxnn30kf7/RealSolarSystem_v5_5.zip
-  version: 5.5
+  version: '5.5'
   gamedata: true
   category: core
   description: |
@@ -114,7 +114,7 @@ mods:
   home: http://forum.kerbalspaceprogram.com/threads/59207
   via: url
   url: https://www.dropbox.com/s/ykgan4pgdvpvc31/RealismOverhaul_v3.zip
-  version: 3
+  version: '3'
   gamedata: true
   category: core
   ignore:
@@ -142,7 +142,7 @@ mods:
   home: http://forum.kerbalspaceprogram.com/threads/54954
   via: url
   url: https://www.dropbox.com/s/l5a9x6vqwsr5uxs/DeadlyReentryCont_v4.3.zip
-  version: 4.3
+  version: '4.3'
   gamedata: true
   category: core
   ignore:
@@ -155,7 +155,7 @@ mods:
   home: http://forum.kerbalspaceprogram.com/threads/57422
   via: url
   url: https://www.dropbox.com/s/uyqs13yltsy02nj/StretchySRB_v8_1.zip
-  version: 8.1
+  version: '8.1'
   gamedata: true
   category: core
   description: |
@@ -164,7 +164,7 @@ mods:
   home: http://forum.kerbalspaceprogram.com/threads/64118
   via: url
   url: https://www.dropbox.com/s/kkz4brqigwtlnnr/RealFuels_v4_3.zip
-  version: 4.3
+  version: '4.3'
   gamedata: true
   category: core
   ignore:
@@ -190,7 +190,7 @@ mods:
   home: http://forum.kerbalspaceprogram.com/threads/51880
   via: url
   url: https://www.dropbox.com/s/yousr4nxflld9ra/EngineIgnitor%20V3.2.zip
-  version: 3.2
+  version: '3.2'
   gamedata: true
   category: core
   install:
@@ -213,7 +213,7 @@ mods:
   via: spaceport
   addonid: 26610
   type: zip
-  version: 0.8
+  version: '0.8'
   category: core
   incompatible:
   - ECLSS
@@ -273,7 +273,7 @@ mods:
   home: http://forum.kerbalspaceprogram.com/threads/43645
   via: url
   url: https://www.dropbox.com/s/ndt6jt348blfmfi/MissionControllerext.51.rar
-  version: 0.51
+  version: '0.51'
   ignore:
   - 000_Toolbar
   requires:
@@ -286,7 +286,7 @@ mods:
   home: http://forum.kerbalspaceprogram.com/threads/55905
   via: url
   url: https://github.com/waka324/VisualEnhancements/releases/download/6-7-LowRes/VisualEnhancments-6-7.LowRes.zip
-  version: 6.7
+  version: '6.7'
   category: extra
   incompatible:
   - Visual Enhancements (Hi-Res)
@@ -296,7 +296,7 @@ mods:
   home: http://forum.kerbalspaceprogram.com/threads/55905
   via: url
   url: https://github.com/waka324/VisualEnhancements/releases/download/6-7/VisualEnhancments-6-7.zip
-  version: 6.7
+  version: '6.7'
   category: extra
   incompatible:
   - Visual Enhancements (Low-Res)
@@ -316,7 +316,7 @@ mods:
   via: spaceport
   addonid: 38156
   type: zip
-  version: 2.0
+  version: '2.0'
   category: extra
   description: |
     No more wobbly rockets! Increases the strength of the joints between parts on your spacecraft. This is especially necessary with Real Solar System and friends.
@@ -478,7 +478,7 @@ mods:
   home: http://forum.kerbalspaceprogram.com/threads/37707
   via: url
   url: http://www.mediafire.com/download/t9ezf4blxe27i8f/InfernalRobotics0.12.zip
-  version: 0.12
+  version: '0.12'
   category: interesting
   gamedata: true
   ignore:
@@ -536,7 +536,7 @@ mods:
   via: spaceport
   addonid: 4372
   type: zip
-  version: 2.03
+  version: '2.03'
   category: part
   description: |
     New rocket engines, fuel tanks, and more, including some really REALLY big parts.
@@ -545,7 +545,7 @@ mods:
   via: spaceport
   addonid: 10374
   type: zip
-  version: 3.73
+  version: '3.73'
   category: part
   description: |
     Gemini and Mercury parts, but also a lot of other useful bits.
@@ -623,7 +623,7 @@ mods:
   home: http://forum.kerbalspaceprogram.com/threads/57833?p=773847&viewfull=1#post773847
   via: url
   url: https://www.dropbox.com/s/1fg0d4z428nn1vi/RftS_Pack_v2.zip
-  version: 2
+  version: '2'
   requires:
   - Exsurgent Engineering (DLL only)
   gamedata: true
@@ -658,7 +658,7 @@ mods:
   home: http://forum.kerbalspaceprogram.com/threads/59005
   via: url
   url: https://github.com/waka324/TextureCompressor/releases/download/2-15-basic/TextureCompressor-2-15-basic.zip
-  version: 2.15
+  version: '2.15'
   category: support
   incompatible:
   - Active Texture Management (Aggressive)
@@ -668,7 +668,7 @@ mods:
   home: http://forum.kerbalspaceprogram.com/threads/59005
   via: url
   url: https://github.com/waka324/TextureCompressor/releases/download/2-15-aggressive/TextureCompressor-2-15-aggressive.zip
-  version: 2.15
+  version: '2.15'
   category: support
   incompatible:
   - Active Texture Management (Basic)
@@ -742,7 +742,7 @@ mods:
   via: spaceport
   type: zip
   addonid: 34117
-  version: 1.2
+  version: '1.2'
   category: utility
   gamedata: true
   description: |
@@ -752,7 +752,7 @@ mods:
   via: spaceport
   type: zip
   addonid: 37300
-  version: 2
+  version: '2'
   category: utility
   description: |
     Adds a new vector to the navball, allowing you to align your ship easily with your target.
@@ -761,7 +761,7 @@ mods:
   via: spaceport
   addonid: 27265
   type: zip
-  version: 3.0
+  version: '3.0'
   category: utility
   requires:
   - Toolbar
@@ -773,7 +773,7 @@ mods:
   home: http://forum.kerbalspaceprogram.com/threads/57603
   via: url
   url: https://github.com/Mihara/RasterPropMonitor/releases/download/v0.14/RasterPropMonitor.0.14.zip
-  version: 0.14
+  version: '0.14'
   category: interesting
   requires:
   - Module Manager
