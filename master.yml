@@ -172,6 +172,7 @@
     Unmanned probes will require a network connection back to KSC. Build out
     your communications network to control those remote probes!
 - name: Remote Tech 2 (hotfix)
+  home: http://forum.kerbalspaceprogram.com/threads/56399?p=901076&viewfull=1#post901076
   via: url
   url: http://www.mediafire.com/download/dncc8qu44t30a90/RemoteTech2_2014.01.08.22.30.zip
   version: "1.3.3 fixpack 2"
@@ -396,8 +397,8 @@
 - name: Extraplanetary Launchpads
   home: http://forum.kerbalspaceprogram.com/threads/59545
   via: url
-  url: http://taniwha.org/~bill/Extraplanetary_Launchpads_v3.7.zip
-  version: "3.7"
+  url: http://taniwha.org/~bill/Extraplanetary_Launchpads_v3.7.1.zip
+  version: "3.7.1"
   gamedata: true
   category: interesting
   requires: [ "Kethane" ]
@@ -673,6 +674,7 @@
   via: spaceport
   type: zip
   addonid: 50465
+  version: '0.6.2'
   category: utility
   requires: [ "Module Manager" ]
   ignore: [ "ModuleManager" ]
