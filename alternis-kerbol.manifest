@@ -373,6 +373,22 @@ mods:
   - Kethane
   description: |
     Adds a new resource, "Ore", as well as tools for discovering, mining, and processing it. Build and launch spacecraft from orbit, or even from other planets!
+  install:
+  - when:
+    - Real Solar System
+    actions:
+    - |
+      SETVALUES "* Module#name=KethaneDetector" $GAMEDATA/ExtraplanetaryLaunchpads/Parts/Magnetometer/part.cfg
+        DetectingHeight = 120000
+    - |
+      SETVALUES "* Module#name=KethaneDetector" $GAMEDATA/ExtraplanetaryLaunchpads/Parts/OMD/part.cfg
+        DetectingHeight = 2000000
+    - |
+      SETVALUES "* Module#name=KethaneDetector" $GAMEDATA/ExtraplanetaryLaunchpads/Parts/launchpad/part.cfg
+        DetectingHeight = 500000
+    - |
+      SETVALUES "* Module#name=KethaneDetector" $GAMEDATA/ExtraplanetaryLaunchpads/Parts/runway/part.cfg
+        DetectingHeight = 500000
 - name: Kerbal Attachment System (KAS)
   home: http://forum.kerbalspaceprogram.com/threads/53134
   via: spaceport
@@ -486,8 +502,8 @@ mods:
 - name: Toolbar
   home: http://forum.kerbalspaceprogram.com/threads/60863
   via: url
-  url: http://blizzy.de/toolbar/Toolbar-1.5.3.zip
-  version: 1.5.3
+  url: http://blizzy.de/toolbar/Toolbar-1.6.0.zip
+  version: 1.6.0
   category: utility
   description: |
     Adds a toolbar that other plugins can add buttons to. Not terribly useful by itself, though.

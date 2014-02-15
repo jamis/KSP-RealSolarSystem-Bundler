@@ -598,8 +598,8 @@ mods:
 - name: Toolbar
   home: http://forum.kerbalspaceprogram.com/threads/60863
   via: url
-  url: http://blizzy.de/toolbar/Toolbar-1.5.3.zip
-  version: 1.5.3
+  url: http://blizzy.de/toolbar/Toolbar-1.6.0.zip
+  version: 1.6.0
   category: utility
   description: |
     Adds a toolbar that other plugins can add buttons to. Not terribly useful by itself, though.
