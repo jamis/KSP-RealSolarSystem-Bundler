@@ -5,11 +5,6 @@ version: 2
 required:
   - Real Solar System
 
-unsupported:
-  Extraplanetary Launchpads: |
-    Part ranges and grid settings need to be adjusted for RSS. Resource
-    amounts need to be adjusted for each planet.
-
 recommended:
   - Realism Overhaul
   - Ferram Aerospace Research (FAR)

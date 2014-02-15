@@ -406,6 +406,21 @@
     Adds a new resource, "Ore", as well as tools for discovering, mining,
     and processing it. Build and launch spacecraft from orbit, or even
     from other planets!
+  install:
+  - when: [ "Real Solar System" ]
+    actions:
+    - |
+      SETVALUES "* Module#name=KethaneDetector" $GAMEDATA/ExtraplanetaryLaunchpads/Parts/Magnetometer/part.cfg
+        DetectingHeight = 120000
+    - |
+      SETVALUES "* Module#name=KethaneDetector" $GAMEDATA/ExtraplanetaryLaunchpads/Parts/OMD/part.cfg
+        DetectingHeight = 2000000
+    - |
+      SETVALUES "* Module#name=KethaneDetector" $GAMEDATA/ExtraplanetaryLaunchpads/Parts/launchpad/part.cfg
+        DetectingHeight = 500000
+    - |
+      SETVALUES "* Module#name=KethaneDetector" $GAMEDATA/ExtraplanetaryLaunchpads/Parts/runway/part.cfg
+        DetectingHeight = 500000
 - name: Kerbal Attachment System (KAS)
   home: http://forum.kerbalspaceprogram.com/threads/53134
   via: spaceport

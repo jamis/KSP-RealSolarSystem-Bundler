@@ -458,6 +458,33 @@ mods:
             Hydrazine = 0.85
           }
         }
+- name: Extraplanetary Launchpads
+  home: http://forum.kerbalspaceprogram.com/threads/59545
+  via: url
+  url: http://taniwha.org/~bill/Extraplanetary_Launchpads_v3.7.1.zip
+  version: 3.7.1
+  gamedata: true
+  category: interesting
+  requires:
+  - Kethane
+  description: |
+    Adds a new resource, "Ore", as well as tools for discovering, mining, and processing it. Build and launch spacecraft from orbit, or even from other planets!
+  install:
+  - when:
+    - Real Solar System
+    actions:
+    - |
+      SETVALUES "* Module#name=KethaneDetector" $GAMEDATA/ExtraplanetaryLaunchpads/Parts/Magnetometer/part.cfg
+        DetectingHeight = 120000
+    - |
+      SETVALUES "* Module#name=KethaneDetector" $GAMEDATA/ExtraplanetaryLaunchpads/Parts/OMD/part.cfg
+        DetectingHeight = 2000000
+    - |
+      SETVALUES "* Module#name=KethaneDetector" $GAMEDATA/ExtraplanetaryLaunchpads/Parts/launchpad/part.cfg
+        DetectingHeight = 500000
+    - |
+      SETVALUES "* Module#name=KethaneDetector" $GAMEDATA/ExtraplanetaryLaunchpads/Parts/runway/part.cfg
+        DetectingHeight = 500000
 - name: Kerbal Attachment System (KAS)
   home: http://forum.kerbalspaceprogram.com/threads/53134
   via: spaceport
