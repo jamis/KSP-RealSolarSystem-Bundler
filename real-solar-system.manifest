@@ -66,6 +66,8 @@ mods:
   category: core
   description: |
     An alternate config for RSS - keeps the Kerbin system arranged as with stock, but bumps sizes and distances up 10x for a more "realistic" experience.
+  requires:
+  - Real Solar System
   incompatible:
   - RSS - With Planet Factory Planets
   - RSS - 1/10 Scale Solar System
@@ -83,6 +85,7 @@ mods:
   - RSS - 10x Scaled Kerbin System
   - RSS - 1/10 Scale Solar System
   requires:
+  - Real Solar System
   - Krags Planet Factory
   install:
   - actions:
@@ -97,6 +100,7 @@ mods:
   description: |
     An alternate config for RSS - shrinks everything to 1/10 size (the size of the stock Kerbin system), and uses the Planet Factory planets to flesh out the solar system.
   requires:
+  - Real Solar System
   - Krags Planet Factory
   incompatible:
   - RSS - 10x Scaled Kerbin System
@@ -338,7 +342,9 @@ mods:
   description: |
     Adds a new resource called "Kethane", as well as parts for discovering, mining, and processing it.
   install:
-  - actions:
+  - when:
+    - Real Solar System
+    actions:
     - |
       SETVALUES "" $GAMEDATA/Kethane/Grid.cfg
         Moho = 1.02
@@ -474,6 +480,11 @@ mods:
   url: http://www.mediafire.com/download/t9ezf4blxe27i8f/InfernalRobotics0.12.zip
   version: 0.12
   category: interesting
+  gamedata: true
+  ignore:
+  - 000_Toolbar
+  requires:
+  - Toolbar
   description: |
     Adds hinges, rails, and other motorized parts that you can use to make your crafts more dynamic.
 - name: SCANsat

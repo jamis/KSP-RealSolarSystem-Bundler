@@ -1,0 +1,17 @@
+bundle: Alternis Kerbol
+archive: alternis.zip
+version: 2
+
+required:
+  - Alternis Kerbol
+
+recommended:
+  - MechJeb
+  - Kerbal Engineer Redux
+  - Alternis Clouds
+  - Visual Enhancements (Low-Res)
+  - Visual Enhancements (Hi-Res)
+
+defaults:
+  - Alternis Clouds
+  - MechJeb
