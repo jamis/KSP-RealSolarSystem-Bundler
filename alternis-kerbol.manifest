@@ -177,8 +177,8 @@ mods:
 - name: Mission Controller Extended
   home: http://forum.kerbalspaceprogram.com/threads/43645
   via: url
-  url: https://www.dropbox.com/s/ndt6jt348blfmfi/MissionControllerext.51.rar
-  version: '0.51'
+  url: https://www.dropbox.com/s/i4yl1wuj3osr19y/MissionControllerext.52.rar
+  version: '0.52'
   ignore:
   - 000_Toolbar
   requires:
@@ -394,7 +394,7 @@ mods:
   via: spaceport
   addonid: 3998
   type: zip
-  version: 0.4.5
+  version: 0.4.6
   category: interesting
   description: |
     Adds pipes, anchors, winches, and more. Transfer fuel and other resources by connecting ships in orbit, without docking. Vastly increases the usefulness of kerbal EVAs.
@@ -538,8 +538,10 @@ mods:
   via: spaceport
   addonid: 47451
   type: zip
-  version: 0.23.3.1.3
+  version: 0.23.3.1.4
   category: utility
+  ignore:
+  - 000_Toolbar
   description: |
     Move resources (including Kerbals!) between parts and docked vessels, without EVAing.
 - name: Kerbal Alarm Clock
@@ -717,8 +719,8 @@ mods:
 - name: Kerbal Space Industries MFD
   home: http://forum.kerbalspaceprogram.com/threads/66198
   via: url
-  url: https://www.dropbox.com/s/fes6y44etptxrtm/KSI_MFD_1_1d.zip
-  version: 1.1d
+  url: https://www.dropbox.com/s/n57vsf6cxqbtwjf/KSI%20MFD%201_1e.zip
+  version: 1.1e
   category: interesting
   requires:
   - RasterPropMonitor
