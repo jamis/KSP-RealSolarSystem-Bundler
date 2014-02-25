@@ -177,8 +177,8 @@ mods:
 - name: Mission Controller Extended
   home: http://forum.kerbalspaceprogram.com/threads/43645
   via: url
-  url: https://www.dropbox.com/s/i4yl1wuj3osr19y/MissionControllerext.52.rar
-  version: '0.52'
+  url: https://www.dropbox.com/s/kf1fzk6t84j6fit/MissionControllerversion.53.rar
+  version: '0.53'
   ignore:
   - 000_Toolbar
   requires:
