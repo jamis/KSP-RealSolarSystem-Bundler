@@ -41,7 +41,7 @@ module KSP
       FILTER_RECCOMMENDED = 1
       FILTER_ALL = 2
 
-      SUPPORTED_MANIFEST_VERSION = 2
+      SUPPORTED_MANIFEST_VERSION = 3
 
       def initialize(*args)
         super "Mod Bundler"

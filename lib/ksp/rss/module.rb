@@ -164,11 +164,14 @@ module KSP
           gamedata_dir = nil
 
           contents.each do |item|
+            next if ignore?(item)
+
             case File.basename(item)
               when /read|copy|license/i then
                 docs << item
               when "GameData" then
-                gamedata_dir = build_gamedata_dir(item)
+                path = build_gamedata_dir(item)
+                gamedata_dir ||= path
               when "Ships" then
                 build_ships_dir(item)
               when "Subassemblies" then
@@ -177,7 +180,8 @@ module KSP
                 build_source_dir(item)
               else
                 if File.directory?(item)
-                  gamedata_dir ||= build(reporter, item)
+                  path = build(reporter, item)
+                  gamedata_dir ||= path
                 else
                   warn "junk file: #{item}"
                 end
@@ -436,7 +440,8 @@ MSG
         end
 
         def ignore?(item)
-          (@data['ignore'] || []).any? { |i| item.include?(i) }
+          base = File.basename(item)
+          (@data['ignore'] || []).any? { |i| File.fnmatch?(i, base, File::FNM_CASEFOLD) }
         end
 
         def deep_copy(source_root, dest_root, source=source_root)

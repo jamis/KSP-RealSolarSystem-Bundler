@@ -1,7 +1,7 @@
 ---
 bundle: Real Solar System
 archive: rss.zip
-version: 2
+version: 3
 required:
 - Real Solar System
 recommended:
@@ -118,7 +118,7 @@ mods:
   gamedata: true
   category: core
   ignore:
-  - ModuleManager
+  - ModuleManager*.dll
   requires:
   - Module Manager
   description: |
@@ -131,7 +131,7 @@ mods:
   version: 0.12.5.2
   ignore:
   - 000_Toolbar
-  - ModuleManager
+  - ModuleManager*.dll
   requires:
   - Toolbar
   - Module Manager
@@ -146,7 +146,7 @@ mods:
   gamedata: true
   category: core
   ignore:
-  - ModuleManager
+  - ModuleManager*.dll
   requires:
   - Module Manager
   description: |
@@ -168,7 +168,7 @@ mods:
   gamedata: true
   category: core
   ignore:
-  - ModuleManager
+  - ModuleManager*.dll
   requires:
   - Module Manager
   description: |
@@ -181,7 +181,7 @@ mods:
   version: 0.3.3.2
   category: core
   ignore:
-  - ModuleManager
+  - ModuleManager*.dll
   requires:
   - Module Manager
   description: |
@@ -230,7 +230,7 @@ mods:
   - Module Manager
   - Remote Tech 2 (hotfix)
   ignore:
-  - ModuleManager
+  - ModuleManager*.dll
   description: |
     Unmanned probes will require a network connection back to KSC. Build out your communications network to control those remote probes!
 - name: Remote Tech 2 (hotfix)
@@ -258,7 +258,7 @@ mods:
   - StretchyTanks
   - NotReady
   - DeleteOnceMoved
-  - ModuleManager
+  - ModuleManager*.dll
   requires:
   - TreeLoader
   - Module Manager
@@ -741,7 +741,7 @@ mods:
   requires:
   - Module Manager
   ignore:
-  - ModuleManager
+  - ModuleManager*.dll
   - __MACOSX
   description: |
     Tweak the torque, power, brakes and more of individual wheels, giving you finer control over your rovers.
@@ -755,7 +755,7 @@ mods:
   requires:
   - Module Manager
   ignore:
-  - ModuleManager
+  - ModuleManager*.dll
   description: |
     Makes a bunch of things tweakable in the editor, like solar panels,  docking ports, gimbal settings, ladders, RCS, and more.
 - name: RCS Build Aid
@@ -809,7 +809,7 @@ mods:
   requires:
   - Module Manager
   ignore:
-  - ModuleManager
+  - ModuleManager*.dll
   description: |
     Vastly improves the IVA experience by adding dynamic displays with real information to all stock command modules.
 - name: Kerbal Space Industries MFD

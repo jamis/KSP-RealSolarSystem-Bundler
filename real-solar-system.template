@@ -1,6 +1,6 @@
 bundle: Real Solar System
 archive: rss.zip
-version: 2
+version: 3
 
 required:
   - Real Solar System

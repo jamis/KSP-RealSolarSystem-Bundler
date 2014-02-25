@@ -1,6 +1,6 @@
 bundle: Alternis Kerbol
 archive: alternis.zip
-version: 2
+version: 3
 
 required:
   - Alternis Kerbol
