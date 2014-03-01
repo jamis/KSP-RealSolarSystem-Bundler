@@ -177,8 +177,8 @@ mods:
 - name: Mission Controller Extended
   home: http://forum.kerbalspaceprogram.com/threads/43645
   via: url
-  url: https://www.dropbox.com/s/kf1fzk6t84j6fit/MissionControllerversion.53.rar
-  version: '0.53'
+  url: https://www.dropbox.com/s/4yk9e5xojgd3raq/MissionControllerversion.54.rar
+  version: '0.54'
   ignore:
   - 000_Toolbar
   requires:
@@ -502,8 +502,8 @@ mods:
 - name: Toolbar
   home: http://forum.kerbalspaceprogram.com/threads/60863
   via: url
-  url: http://blizzy.de/toolbar/Toolbar-1.6.0.zip
-  version: 1.6.0
+  url: http://blizzy.de/toolbar/Toolbar-1.6.1.zip
+  version: 1.6.1
   category: utility
   description: |
     Adds a toolbar that other plugins can add buttons to. Not terribly useful by itself, though.
@@ -538,7 +538,7 @@ mods:
   via: spaceport
   addonid: 47451
   type: zip
-  version: 0.23.3.1.4
+  version: 0.23.3.1.5
   category: utility
   ignore:
   - 000_Toolbar
@@ -654,7 +654,7 @@ mods:
   via: spaceport
   type: zip
   addonid: 50465
-  version: 0.6.2
+  version: 0.6.4
   category: utility
   requires:
   - Module Manager
