@@ -753,8 +753,8 @@
 - name: Kerbal Space Industries MFD
   home: http://forum.kerbalspaceprogram.com/threads/66198
   via: url
-  url: https://www.dropbox.com/s/n57vsf6cxqbtwjf/KSI%20MFD%201_1e.zip
-  version: "1.1e"
+  url: https://www.dropbox.com/s/rfda4xj6d5yfhwq/KSI%20MFD%201_1f.zip
+  version: "1.1f"
   category: interesting
   requires: [ "RasterPropMonitor" ]
   description: >
