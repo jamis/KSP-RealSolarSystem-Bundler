@@ -178,7 +178,7 @@ mods:
   via: spaceport
   addonid: 40204
   type: zip
-  version: 1.0.1.1
+  version: 1.0.3
   category: core
   ignore:
   - ModuleManager*.dll
