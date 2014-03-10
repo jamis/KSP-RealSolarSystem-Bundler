@@ -365,8 +365,8 @@ mods:
 - name: Extraplanetary Launchpads
   home: http://forum.kerbalspaceprogram.com/threads/59545
   via: url
-  url: http://taniwha.org/~bill/Extraplanetary_Launchpads_v3.7.1.zip
-  version: 3.7.1
+  url: http://taniwha.org/~bill/Extraplanetary_Launchpads_v4.0.zip
+  version: '4.0'
   gamedata: true
   category: interesting
   requires:
