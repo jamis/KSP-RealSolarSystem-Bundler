@@ -84,8 +84,8 @@
 - name: Deadly Reentry Continued
   home: http://forum.kerbalspaceprogram.com/threads/54954
   via: url
-  url: https://www.dropbox.com/s/l5a9x6vqwsr5uxs/DeadlyReentryCont_v4.3.zip
-  version: "4.3"
+  url: https://www.dropbox.com/s/iu98akycedxdd5e/DeadlyReentryCont_v4.5.zip
+  version: "4.5"
   gamedata: true
   category: core
   ignore: [ "ModuleManager*.dll" ]
@@ -252,7 +252,7 @@
   via: spaceport
   addonid: 38156
   type: zip
-  version: "2.0"
+  version: "2.1"
   category: extra
   description: >
     No more wobbly rockets! Increases the strength of the joints between
@@ -397,8 +397,8 @@
 - name: Extraplanetary Launchpads
   home: http://forum.kerbalspaceprogram.com/threads/59545
   via: url
-  url: http://taniwha.org/~bill/Extraplanetary_Launchpads_v4.0.zip
-  version: "4.0"
+  url: http://taniwha.org/~bill/Extraplanetary_Launchpads_v4.0.2.zip
+  version: "4.0.2"
   gamedata: true
   category: interesting
   requires: [ "Kethane" ]
@@ -514,7 +514,7 @@
   via: spaceport
   addonid: 10374
   type: zip
-  version: "3.73"
+  version: "3.86"
   category: part
   description: >
     Gemini and Mercury parts, but also a lot of other useful bits.
@@ -703,7 +703,7 @@
   type: zip
   addonid: 20842
   category: utility
-  version: "0.4.4"
+  version: "0.4.5"
   gamedata: true
   description: >
     Helps you position your RCS thrusters exactly where you need them
