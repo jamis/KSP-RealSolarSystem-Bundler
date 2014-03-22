@@ -154,8 +154,8 @@ mods:
 - name: StretchySRB
   home: http://forum.kerbalspaceprogram.com/threads/57422
   via: url
-  url: https://www.dropbox.com/s/uyqs13yltsy02nj/StretchySRB_v8_1.zip
-  version: '8.1'
+  url: https://www.dropbox.com/s/c1hczfkyvs3rtox/StretchySRB_v9.zip
+  version: '9'
   gamedata: true
   category: core
   description: |
@@ -163,8 +163,8 @@ mods:
 - name: RealFuels
   home: http://forum.kerbalspaceprogram.com/threads/64118
   via: url
-  url: https://www.dropbox.com/s/kkz4brqigwtlnnr/RealFuels_v4_3.zip
-  version: '4.3'
+  url: https://www.dropbox.com/s/zi9d7awvd840sgd/RealFuels_v5.zip
+  version: '5'
   gamedata: true
   category: core
   ignore:
@@ -286,8 +286,8 @@ mods:
 - name: Visual Enhancements (Low-Res)
   home: http://forum.kerbalspaceprogram.com/threads/55905
   via: url
-  url: https://github.com/waka324/VisualEnhancements/releases/download/6-7-LowRes/VisualEnhancments-6-7.LowRes.zip
-  version: '6.7'
+  url: https://github.com/waka324/VisualEnhancements/releases/download/6-8-LR/VisualEnhancments-6-8-1LR.zip
+  version: '6.8'
   category: extra
   incompatible:
   - Visual Enhancements (Hi-Res)
@@ -296,8 +296,8 @@ mods:
 - name: Visual Enhancements (Hi-Res)
   home: http://forum.kerbalspaceprogram.com/threads/55905
   via: url
-  url: https://github.com/waka324/VisualEnhancements/releases/download/6-7/VisualEnhancments-6-7.zip
-  version: '6.7'
+  url: https://github.com/waka324/VisualEnhancements/releases/download/6-8/VisualEnhancments-6-8-1.zip
+  version: '6.8'
   category: extra
   incompatible:
   - Visual Enhancements (Low-Res)
@@ -461,8 +461,8 @@ mods:
 - name: Extraplanetary Launchpads
   home: http://forum.kerbalspaceprogram.com/threads/59545
   via: url
-  url: http://taniwha.org/~bill/Extraplanetary_Launchpads_v4.0.2.zip
-  version: 4.0.2
+  url: http://taniwha.org/~bill/Extraplanetary_Launchpads_v4.0.3.zip
+  version: 4.0.3
   gamedata: true
   category: interesting
   requires:
