@@ -1,10 +1,10 @@
 - name: Real Solar System
   home: http://forum.kerbalspaceprogram.com/threads/55145
   via: url
-  url: https://www.dropbox.com/s/0fvwylbxnn30kf7/RealSolarSystem_v5_5.zip
-  version: "5.5"
-  #url: https://www.dropbox.com/s/wt7bh2g4g7u8ykd/RealSolarSystem_v6_pre1.zip
-  #version: "6-pre1"
+  #url: https://www.dropbox.com/s/0fvwylbxnn30kf7/RealSolarSystem_v5_5.zip
+  #version: "5.5"
+  url: https://www.dropbox.com/s/wt7bh2g4g7u8ykd/RealSolarSystem_v6_pre1.zip
+  version: "6-pre1"
   gamedata: true
   category: core
   description: >
@@ -74,7 +74,7 @@
   via: spaceport
   addonid: 1113
   type: zip
-  version: "0.12.5.2"
+  version: "0.13"
   ignore: [ "000_Toolbar", "ModuleManager*.dll" ]
   requires: [ "Toolbar", "Module Manager" ]
   category: core
@@ -118,7 +118,7 @@
   via: spaceport
   addonid: 40204
   type: zip
-  version: "1.0.3"
+  version: "1.0.4.1"
   category: core
   ignore: [ "ModuleManager*.dll" ]
   requires: [ "Module Manager" ]
@@ -208,8 +208,8 @@
 - name: Mission Controller Extended
   home: http://forum.kerbalspaceprogram.com/threads/43645
   via: url
-  url: https://www.dropbox.com/s/yg8d1oa48jqa6g3/MissionControllerversion.55.rar
-  version: "0.55"
+  url: https://www.dropbox.com/s/yfbjvtrybptdz3b/MissionControllerMCE61.zip
+  version: "0.61"
   ignore: [ "000_Toolbar" ]
   requires: [ "Toolbar" ]
   gamedata: true
@@ -220,8 +220,8 @@
 - name: Visual Enhancements (Low-Res)
   home: http://forum.kerbalspaceprogram.com/threads/55905
   via: url
-  url: https://github.com/waka324/VisualEnhancements/releases/download/6-8-LR/VisualEnhancments-6-8-1LR.zip
-  version: "6.8"
+  url: https://github.com/rbray89/EnvironmentalVisualEnhancements/releases/download/Release-7-1LR/EnvironmentalVisualEnhancements-7-1LR.zip
+  version: "7.1"
   category: extra
   incompatible: [ "Visual Enhancements (Hi-Res)" ]
   description: >
@@ -230,8 +230,8 @@
 - name: Visual Enhancements (Hi-Res)
   home: http://forum.kerbalspaceprogram.com/threads/55905
   via: url
-  url: https://github.com/waka324/VisualEnhancements/releases/download/6-8/VisualEnhancments-6-8-1.zip
-  version: "6.8"
+  url: https://github.com/rbray89/EnvironmentalVisualEnhancements/releases/download/Release-7-1/EnvironmentalVisualEnhancements-7-1.zip
+  version: "7.1"
   category: extra
   incompatible: [ "Visual Enhancements (Low-Res)" ]
   description: >
@@ -242,7 +242,7 @@
   via: spaceport
   addonid: 22991
   type: zip
-  version: "2.4.3"
+  version: "2.4.4"
   category: extra
   description: >
     Only really necessary if using FAR, this will allow you to add fairings
@@ -252,7 +252,7 @@
   via: spaceport
   addonid: 38156
   type: zip
-  version: "2.1"
+  version: "2.2"
   category: extra
   description: >
     No more wobbly rockets! Increases the strength of the joints between
@@ -273,9 +273,9 @@
     significantly!
 - name: Kethane
   home: http://forum.kerbalspaceprogram.com/threads/23979
-  via: url
-  url: http://mirror.nabaal.net/files/kethane/Kethane-0.8.4.zip
-  version: "0.8.4"
+  via: manual
+  url: https://nabaal.net/files/kethane/Kethane-0.8.5.zip
+  version: "0.8.5"
   category: interesting
   description: >
     Adds a new resource called "Kethane", as well as parts for discovering,
@@ -397,8 +397,8 @@
 - name: Extraplanetary Launchpads
   home: http://forum.kerbalspaceprogram.com/threads/59545
   via: url
-  url: http://taniwha.org/~bill/Extraplanetary_Launchpads_v4.0.3.zip
-  version: "4.0.3"
+  url: http://taniwha.org/~bill/Extraplanetary_Launchpads_v4.1.zip
+  version: "4.1"
   gamedata: true
   category: interesting
   requires: [ "Kethane" ]
@@ -426,7 +426,7 @@
   via: spaceport
   addonid: 3998
   type: zip
-  version: "0.4.6"
+  version: "0.4.7"
   category: interesting
   description: >
     Adds pipes, anchors, winches, and more. Transfer fuel and other resources
@@ -435,8 +435,8 @@
 - name: KSP Interstellar
   home: http://forum.kerbalspaceprogram.com/threads/43839
   via: url
-  url: https://bitbucket.org/FractalUK/kspinstellar/downloads/KSPInterstellar-v0.10.3.zip
-  version: "0.10.3"
+  url: https://bitbucket.org/FractalUK/kspinstellar/downloads/KSPInterstellar-v0.11.zip
+  version: "0.11"
   category: interesting
   description: >
     Adds some near (and far) future tech, but not without making you work
@@ -540,8 +540,8 @@
 - name: Toolbar
   home: http://forum.kerbalspaceprogram.com/threads/60863
   via: url
-  url: http://blizzy.de/toolbar/Toolbar-1.7.0.zip
-  version: "1.7.0"
+  url: http://blizzy.de/toolbar/Toolbar-1.7.1.zip
+  version: "1.7.1"
   category: utility
   description: >
     Adds a toolbar that other plugins can add buttons to. Not
@@ -588,7 +588,7 @@
   via: spaceport
   addonid: 7625
   type: zip
-  version: "2.7.0"
+  version: "2.7.2.0"
   category: utility
   description: >
     Never miss a transfer window, SOI transistion, or maneuver node again.
@@ -630,8 +630,8 @@
 - name: Active Texture Management (Basic)
   home: http://forum.kerbalspaceprogram.com/threads/59005
   via: url
-  url: https://github.com/waka324/TextureCompressor/releases/download/2-15-basic/TextureCompressor-2-15-basic.zip
-  version: "2.15"
+  url: https://github.com/rbray89/ActiveTextureManagement/releases/download/3-1-basic/ActiveTextureManagement-Basic-3-1.zip
+  version: "3.1"
   category: support
   incompatible: [ "Active Texture Management (Aggressive)" ]
   description: >
@@ -641,8 +641,8 @@
 - name: Active Texture Management (Aggressive)
   home: http://forum.kerbalspaceprogram.com/threads/59005
   via: url
-  url: https://github.com/waka324/TextureCompressor/releases/download/2-15-aggressive/TextureCompressor-2-15-aggressive.zip
-  version: "2.15"
+  url: https://github.com/rbray89/ActiveTextureManagement/releases/download/3-1-aggressive/ActiveTextureManagement-3-1.zip
+  version: "3.1"
   category: support
   incompatible: [ "Active Texture Management (Basic)" ]
   description: >
@@ -690,7 +690,7 @@
   via: spaceport
   type: zip
   addonid: 50465
-  version: '0.6.4'
+  version: '0.6.6'
   category: utility
   requires: [ "Module Manager" ]
   ignore: [ "ModuleManager*.dll" ]
@@ -774,6 +774,7 @@
   via: spaceport
   addonid: 8745
   type: zip
+  version: "2.3"
   category: utility
   description: >
     Evenly transfer fuel into or out of multiple tanks, simultaneously!
