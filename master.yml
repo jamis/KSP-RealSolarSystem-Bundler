@@ -1,10 +1,8 @@
 - name: Real Solar System
   home: http://forum.kerbalspaceprogram.com/threads/55145
   via: url
-  #url: https://www.dropbox.com/s/0fvwylbxnn30kf7/RealSolarSystem_v5_5.zip
-  #version: "5.5"
-  url: https://www.dropbox.com/s/wt7bh2g4g7u8ykd/RealSolarSystem_v6_pre1.zip
-  version: "6-pre1"
+  url: https://github.com/NathanKell/RealSolarSystem/releases/download/v6/RealSolarSystem_v6.zip
+  version: "6"
   gamedata: true
   category: core
   description: >
@@ -59,8 +57,8 @@
 - name: Realism Overhaul
   home: http://forum.kerbalspaceprogram.com/threads/59207
   via: url
-  url: https://www.dropbox.com/s/ykgan4pgdvpvc31/RealismOverhaul_v3.zip
-  version: "3"
+  url: https://github.com/NathanKell/RealismOverhaul/releases/download/v4/RealismOverhaul_v4.zip
+  version: "4"
   gamedata: true
   category: core
   ignore: [ "ModuleManager*.dll" ]
@@ -74,7 +72,7 @@
   via: spaceport
   addonid: 1113
   type: zip
-  version: "0.13"
+  version: "0.13.1"
   ignore: [ "000_Toolbar", "ModuleManager*.dll" ]
   requires: [ "Toolbar", "Module Manager" ]
   category: core
@@ -84,8 +82,8 @@
 - name: Deadly Reentry Continued
   home: http://forum.kerbalspaceprogram.com/threads/54954
   via: url
-  url: https://www.dropbox.com/s/iu98akycedxdd5e/DeadlyReentryCont_v4.5.zip
-  version: "4.5"
+  url: https://github.com/NathanKell/DeadlyReentry/releases/download/v4.6/DeadlyReentryCont_v4.6.zip
+  version: "4.6"
   gamedata: true
   category: core
   ignore: [ "ModuleManager*.dll" ]
@@ -105,8 +103,8 @@
 - name: RealFuels
   home: http://forum.kerbalspaceprogram.com/threads/64118
   via: url
-  url: https://www.dropbox.com/s/zi9d7awvd840sgd/RealFuels_v5.zip
-  version: "5"
+  url: https://github.com/NathanKell/ModularFuelSystem/releases/download/rf-v5.1/RealFuels_v5.1.zip
+  version: "5.1"
   gamedata: true
   category: core
   ignore: [ "ModuleManager*.dll" ]
@@ -208,8 +206,8 @@
 - name: Mission Controller Extended
   home: http://forum.kerbalspaceprogram.com/threads/43645
   via: url
-  url: https://www.dropbox.com/s/yfbjvtrybptdz3b/MissionControllerMCE61.zip
-  version: "0.61"
+  url: https://www.dropbox.com/s/n6uw07ycazxpa7b/MissionControllerMCE63.zip
+  version: "0.63"
   ignore: [ "000_Toolbar" ]
   requires: [ "Toolbar" ]
   gamedata: true
@@ -220,8 +218,8 @@
 - name: Visual Enhancements (Low-Res)
   home: http://forum.kerbalspaceprogram.com/threads/55905
   via: url
-  url: https://github.com/rbray89/EnvironmentalVisualEnhancements/releases/download/Release-7-1LR/EnvironmentalVisualEnhancements-7-1LR.zip
-  version: "7.1"
+  url: https://github.com/rbray89/EnvironmentalVisualEnhancements/releases/download/Release-7-2LR/EnvironmentalVisualEnhancements-7-2-LR.zip
+  version: "7.2"
   category: extra
   incompatible: [ "Visual Enhancements (Hi-Res)" ]
   description: >
@@ -230,8 +228,8 @@
 - name: Visual Enhancements (Hi-Res)
   home: http://forum.kerbalspaceprogram.com/threads/55905
   via: url
-  url: https://github.com/rbray89/EnvironmentalVisualEnhancements/releases/download/Release-7-1/EnvironmentalVisualEnhancements-7-1.zip
-  version: "7.1"
+  url: https://github.com/rbray89/EnvironmentalVisualEnhancements/releases/download/Release-7-2/EnvironmentalVisualEnhancements-7-2.zip
+  version: "7.2"
   category: extra
   incompatible: [ "Visual Enhancements (Low-Res)" ]
   description: >
@@ -252,7 +250,7 @@
   via: spaceport
   addonid: 38156
   type: zip
-  version: "2.2"
+  version: "2.3"
   category: extra
   description: >
     No more wobbly rockets! Increases the strength of the joints between
@@ -397,8 +395,8 @@
 - name: Extraplanetary Launchpads
   home: http://forum.kerbalspaceprogram.com/threads/59545
   via: url
-  url: http://taniwha.org/~bill/Extraplanetary_Launchpads_v4.1.zip
-  version: "4.1"
+  url: http://taniwha.org/~bill/Extraplanetary_Launchpads_v4.1.2.zip
+  version: "4.1.2"
   gamedata: true
   category: interesting
   requires: [ "Kethane" ]
@@ -501,10 +499,9 @@
     big parts.
 - name: NovaPunch
   home: http://forum.kerbalspaceprogram.com/threads/3870
-  via: spaceport
-  addonid: 4372
-  type: zip
-  version: "2.03"
+  via: url
+  url: http://www.mediafire.com/download/3gd8wz2pq6iozb2/NovaPunch2_03_5.zip
+  version: "2.03.5"
   category: part
   description: >
     New rocket engines, fuel tanks, and more, including some really
@@ -551,7 +548,7 @@
   via: spaceport
   addonid: 3679
   type: zip
-  version: "2.1.1"
+  version: "2.2"
   gamedata: true
   category: utility
   description: >
@@ -577,7 +574,7 @@
   via: spaceport
   addonid: 47451
   type: zip
-  version: "0.23.3.1.5"
+  version: "0.23.5.3.2"
   category: utility
   ignore: [ "000_Toolbar" ]
   description: >
@@ -588,7 +585,7 @@
   via: spaceport
   addonid: 7625
   type: zip
-  version: "2.7.2.0"
+  version: "2.7.3.0"
   category: utility
   description: >
     Never miss a transfer window, SOI transistion, or maneuver node again.
@@ -703,7 +700,7 @@
   type: zip
   addonid: 20842
   category: utility
-  version: "0.4.5"
+  version: "0.4.6"
   gamedata: true
   description: >
     Helps you position your RCS thrusters exactly where you need them
@@ -742,8 +739,8 @@
 - name: RasterPropMonitor
   home: http://forum.kerbalspaceprogram.com/threads/57603
   via: url
-  url: https://github.com/Mihara/RasterPropMonitor/releases/download/v0.14/RasterPropMonitor.0.14.zip
-  version: "0.14"
+  url: https://github.com/Mihara/RasterPropMonitor/releases/download/v0.15/RasterPropMonitor.0.15.zip
+  version: "0.15"
   category: interesting
   requires: [ "Module Manager" ]
   ignore: [ "ModuleManager*.dll" ]
@@ -753,8 +750,8 @@
 - name: Kerbal Space Industries MFD
   home: http://forum.kerbalspaceprogram.com/threads/66198
   via: url
-  url: https://www.dropbox.com/s/rfda4xj6d5yfhwq/KSI%20MFD%201_1f.zip
-  version: "1.1f"
+  url: https://www.dropbox.com/s/3ka7pmio8uwm3j4/KSI%20Aerospace%20Parts.zip
+  version: "1.2"
   category: interesting
   requires: [ "RasterPropMonitor" ]
   description: >
